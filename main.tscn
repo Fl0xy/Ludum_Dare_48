@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://components/costumer/CostumerRandom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg" type="AudioStream" id=2]
+[ext_resource path="res://components/deep_fryer/DeepFryer.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,3 +12,12 @@ position = Vector2( 120.136, 288.325 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
+
+[node name="DeepFryer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 147.244, 518.187 )
+
+[node name="DeepFryer2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 571.044, 512.524 )
+
+[node name="DeepFryer3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360.56, 516.299 )

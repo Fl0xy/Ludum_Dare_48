@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deep_fryer.png-6ebc3cb408864676df0a97ddc6a32339.stex"
+path="res://.import/head_1.png-7d5986dc5ee04b4328eac102f5bb6f42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/deep_fryer.png"
-dest_files=[ "res://.import/deep_fryer.png-6ebc3cb408864676df0a97ddc6a32339.stex" ]
+source_file="res://assets/head_1.png"
+dest_files=[ "res://.import/head_1.png-7d5986dc5ee04b4328eac102f5bb6f42.stex" ]
 
 [params]
 
