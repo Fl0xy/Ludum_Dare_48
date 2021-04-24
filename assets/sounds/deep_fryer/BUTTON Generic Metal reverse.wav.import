@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BUTTON Generic Metal reverse.wav-7b4ee17287ec9f171fa385391d64c7aa.sample"
+
+[deps]
+
+source_file="res://assets/sounds/deep_fryer/BUTTON Generic Metal reverse.wav"
+dest_files=[ "res://.import/BUTTON Generic Metal reverse.wav-7b4ee17287ec9f171fa385391d64c7aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
