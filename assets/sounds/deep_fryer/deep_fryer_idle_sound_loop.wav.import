@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/deep_fryer_idle_sound_loop.wav-8cc5beced439f101795cf93eafb3d02b.sample"
+
+[deps]
+
+source_file="res://assets/sounds/deep_fryer/deep_fryer_idle_sound_loop.wav"
+dest_files=[ "res://.import/deep_fryer_idle_sound_loop.wav-8cc5beced439f101795cf93eafb3d02b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

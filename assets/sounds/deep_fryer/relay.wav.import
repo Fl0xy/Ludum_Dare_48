@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/relay.wav-e7099c5e23c9c8f08f71e5e553089ac2.sample"
+
+[deps]
+
+source_file="res://assets/sounds/deep_fryer/relay.wav"
+dest_files=[ "res://.import/relay.wav-e7099c5e23c9c8f08f71e5e553089ac2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
