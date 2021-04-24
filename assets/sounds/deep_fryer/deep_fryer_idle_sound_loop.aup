@@ -1,0 +1,97 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="deep_fryer_idle_sound_loop_data" version="1.3.0" audacityversion="2.4.1" sel0="0.0000000000" sel1="6.5983219955" vpos="0" h="0.0000000000" zoom="237.0306637031" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="455653__audeption__deep-fryer-sizzle" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.48086168" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="71256">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f005.au" len="71256" min="-0.961609" max="0.955811" rms="0.118242"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="5">
+				<controlpoint t="0.000000000000" val="0.056338012218"/>
+				<controlpoint t="0.307953570756" val="0.436619699001"/>
+				<controlpoint t="0.932345359092" val="1.000000000000"/>
+				<controlpoint t="1.345776823246" val="1.014084577560"/>
+				<controlpoint t="1.615784083067" val="0.563380241394"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="455653__audeption__deep-fryer-sizzle" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.48086168" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="71256">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fe44.au" len="71256" min="-0.944763" max="0.958496" rms="0.122694"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="5">
+				<controlpoint t="0.000000000000" val="0.056338012218"/>
+				<controlpoint t="0.307953570756" val="0.436619699001"/>
+				<controlpoint t="0.932345359092" val="1.000000000000"/>
+				<controlpoint t="1.345776823246" val="1.014084577560"/>
+				<controlpoint t="1.615784083067" val="0.563380241394"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="455653__audeption__deep-fryer-sizzle" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="108655">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fad0.au" len="60086" min="-0.961731" max="0.962067" rms="0.105937"/>
+				</waveblock>
+				<waveblock start="60086">
+					<simpleblockfile filename="eff1fd83.au" len="48569" min="-0.963013" max="0.724426" rms="0.071271"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="3">
+				<controlpoint t="1.506140811397" val="1.000000000000"/>
+				<controlpoint t="2.219128731862" val="0.394366204739"/>
+				<controlpoint t="2.463832199546" val="0.056338012218"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="455653__audeption__deep-fryer-sizzle" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="108655">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f763.au" len="60086" min="-0.96228" max="0.960602" rms="0.108669"/>
+				</waveblock>
+				<waveblock start="60086">
+					<simpleblockfile filename="eff1fff1.au" len="48569" min="-0.892822" max="0.958679" rms="0.07227"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="3">
+				<controlpoint t="1.506140811397" val="1.000000000000"/>
+				<controlpoint t="2.219128731862" val="0.394366204739"/>
+				<controlpoint t="2.463832199546" val="0.056338012218"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="455653__audeption__deep-fryer-sizzle" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="2.88147392" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="163913">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fe8b.au" len="163913" min="-0.962982" max="0.958923" rms="0.105176"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.012658360446" val="0.591549277306"/>
+				<controlpoint t="0.291103347136" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="455653__audeption__deep-fryer-sizzle" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="2.88147392" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="163913">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f6f2.au" len="163913" min="-0.962463" max="0.962036" rms="0.107082"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.012658360446" val="0.591549277306"/>
+				<controlpoint t="0.291103347136" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>

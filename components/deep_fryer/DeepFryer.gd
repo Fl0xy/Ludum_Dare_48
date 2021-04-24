@@ -11,7 +11,7 @@ func _ready():
 	randomPowerFlicker = float(15 + (randi() % 30))
 	heaterPowered = true
 	randomHeaterFlicker = float(60 + (randi() % 10))
-	$OilIdle.play(randf() *6)
+	$OilSounds/Idle.play(randf() *6)
 	
 func _physics_process(delta):
 	randomPowerFlicker -= delta
