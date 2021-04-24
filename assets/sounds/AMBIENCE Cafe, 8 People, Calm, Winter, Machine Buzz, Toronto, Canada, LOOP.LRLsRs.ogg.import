@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg-848829c1dc7fde6cdc0704f3f38657f5.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg"
+dest_files=[ "res://.import/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg-848829c1dc7fde6cdc0704f3f38657f5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
