@@ -1,3 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://components/costumer/CostumerRandom.tscn" type="PackedScene" id=1]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 177.265, 216.436 )
+
+[node name="CostumerBase" parent="." instance=ExtResource( 1 )]
