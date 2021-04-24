@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/deep_fryer.png" type="Texture" id=1]
 [ext_resource path="res://assets/oil_boiling_f2.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://assets/sounds/deep_fryer/relay.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_idle_sound_loop.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/gitter_ding.png" type="Texture" id=10]
+[ext_resource path="res://components/deep_fryer/GitterDing.gd" type="Script" id=11]
+[ext_resource path="res://assets/sounds/deep_fryer/BUTTON Generic Metal.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/deep_fryer/BUTTON Generic Metal reverse.wav" type="AudioStream" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +22,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 76, 23 )
+
 [node name="DeepFryer" type="Node2D"]
 script = ExtResource( 7 )
 __meta__ = {
@@ -26,6 +32,9 @@ __meta__ = {
 }
 
 [node name="Fryer" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Fryer" type="Sprite" parent="Fryer"]
 texture = ExtResource( 1 )
@@ -33,39 +42,59 @@ texture = ExtResource( 1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fryer"]
 visible = false
 polygon = PoolVector2Array( -99, 1, -77, 1, -77, 60, 76, 60, 75, 1, 96, 1, 97, 8, 100, 18, 100, 60, 100, 64, -100, 62 )
+disabled = true
 
-[node name="GitterDing" type="RigidBody2D" parent="."]
-position = Vector2( 4, -31 )
+[node name="GitterDing" type="StaticBody2D" parent="."]
+position = Vector2( 5, -12 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="AudioClick" type="AudioStreamPlayer2D" parent="GitterDing"]
+position = Vector2( -5, 12 )
+stream = ExtResource( 12 )
+
+[node name="AudioUnclick" type="AudioStreamPlayer2D" parent="GitterDing"]
+position = Vector2( -5, 12 )
+stream = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="GitterDing"]
 texture = ExtResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GitterDing"]
 visible = false
-polygon = PoolVector2Array( -74, 4, -74, 70, 59, 69, 63, 1, 54, 2, 55, 65, -71, 67, -71, 4 )
+polygon = PoolVector2Array( -104, 4, -104, 90, 96, 92, 95, 1, 54, 2, 55, 65, -71, 67, -71, 4 )
 
 [node name="Area2D" type="Area2D" parent="GitterDing"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 524288
+collision_mask = 524288
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GitterDing/Area2D"]
 polygon = PoolVector2Array( -30, -65, -17, -71, 2, -71, 25, -67, 41, -61, 39, -54, 32, -49, 17, -55, -21, -56 )
 
-[node name="Oil" type="AnimatedSprite" parent="."]
+[node name="Oil" type="Area2D" parent="."]
+visible = false
+collision_layer = 32
+collision_mask = 32
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Oil"]
 modulate = Color( 1, 1, 1, 0.827451 )
 position = Vector2( 0.5, 30 )
 scale = Vector2( 1.00649, 1 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oil"]
+position = Vector2( 0, 37 )
+shape = SubResource( 2 )
 
 [node name="LightGreen" type="Light2D" parent="."]
 position = Vector2( -65, -44 )

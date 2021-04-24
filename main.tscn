@@ -29,6 +29,6 @@ position = Vector2( 571.044, 512.524 )
 position = Vector2( 360.56, 516.299 )
 
 [node name="Gundam" parent="." instance=ExtResource( 4 )]
-position = Vector2( 145.051, 473.455 )
+position = Vector2( 153.06, 260.548 )
 rotation = 1.64934
 scale = Vector2( 1, 1 )

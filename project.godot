@@ -20,6 +20,12 @@ HairList="*res://components/costumer/hair/HairList.gd"
 HeadList="*res://components/costumer/head/HeadList.gd"
 ShirtList="*res://components/costumer/shirt/ShirtList.gd"
 
+[layer_names]
+
+2d_physics/layer_1="std_col"
+2d_physics/layer_6="Oil"
+2d_physics/layer_20="for_clicks"
+
 [physics]
 
 common/enable_pause_aware_picking=true
