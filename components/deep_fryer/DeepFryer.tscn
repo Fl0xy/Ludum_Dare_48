@@ -47,6 +47,13 @@ texture = ExtResource( 10 )
 visible = false
 polygon = PoolVector2Array( -74, 4, -74, 70, 59, 69, 63, 1, 54, 2, 55, 65, -71, 67, -71, 4 )
 
+[node name="Area2D" type="Area2D" parent="GitterDing"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GitterDing/Area2D"]
+polygon = PoolVector2Array( -30, -65, -17, -71, 2, -71, 25, -67, 41, -61, 39, -54, 32, -49, 17, -55, -21, -56 )
+
 [node name="Oil" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.827451 )
 position = Vector2( 0.5, 30 )
@@ -83,7 +90,7 @@ __meta__ = {
 [node name="AudioRelay" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -31 )
 stream = ExtResource( 8 )
-volume_db = -19.0
+volume_db = -15.0
 
 [node name="OilSounds" type="Node2D" parent="."]
 
