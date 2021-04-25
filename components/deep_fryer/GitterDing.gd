@@ -22,8 +22,15 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		if state == HELD && !event.pressed:
-			state = FALLING
+		if !event.is_pressed():
+			if state == HELD:
+				state = FALLING
+			if state == HELDTHRESHOLD:
+				if Y_TOP - position.y < Y_BOT - position.y:
+					state = TOP
+				else:
+					state = BOT
+				
 	
 func _physics_process(delta):
 	if state == HELDTHRESHOLD:
@@ -31,17 +38,20 @@ func _physics_process(delta):
 		var tmpPos: Vector2 = offset + origin
 		
 		# X axis Play
-		if tmpPos.x < origin.x - 5:
-			tmpPos.x = origin.x - 5
-		elif tmpPos.x > origin.x + 5:
-			tmpPos.x = origin.x +5
+		if tmpPos.x < origin.x - X_PLAY:
+			tmpPos.x = origin.x - X_PLAY
+		elif tmpPos.x > origin.x + X_PLAY:
+			tmpPos.x = origin.x +X_PLAY
 		
-		if offset.y <= Y_TOP:
+		if tmpPos.y <= Y_TOP:
 			tmpPos.y = Y_TOP
+			offset.y = -THRESHOLD
 		elif tmpPos.y >= Y_BOT:
 			tmpPos.y = Y_BOT
+			offset.y = THRESHOLD
 			
-		if abs(offset.y) >= THRESHOLD:
+		if abs(offset.y) > THRESHOLD:
+			print(offset)
 			state = HELD
 			$AudioUnclick.play()
 			
@@ -52,19 +62,21 @@ func _physics_process(delta):
 		var tmpPos: Vector2 = offset + origin
 		
 		# X axis Play
-		if tmpPos.x < origin.x - 5:
-			tmpPos.x = origin.x - 5
-		elif tmpPos.x > origin.x + 5:
-			tmpPos.x = origin.x +5
+		if tmpPos.x < origin.x - X_PLAY:
+			tmpPos.x = origin.x - X_PLAY
+		elif tmpPos.x > origin.x + X_PLAY:
+			tmpPos.x = origin.x +X_PLAY
 		
 		if tmpPos.y <= Y_TOP:
 			tmpPos.y = Y_TOP
-			state = TOP
+			state = HELDTHRESHOLD
+			mouseClickedPos = get_global_mouse_position()
 			origin.y = Y_TOP
 			$AudioClick.play()
 		elif tmpPos.y >= Y_BOT:
 			tmpPos.y = Y_BOT
-			state = BOT
+			state = HELDTHRESHOLD
+			mouseClickedPos = get_global_mouse_position()
 			origin.y = Y_BOT
 			$AudioClick.play()
 		position = tmpPos
