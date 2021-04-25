@@ -45,10 +45,10 @@ func _physics_process(delta):
 	
 func setHeaterPowerVis(state: bool):
 	$AudioRelay.play()
-	$LightRed.visible = state
+	$Fryer/LightRed.visible = state
 	
 func setPowerVis(state: bool):
-	$LightGreen.visible = state
+	$Fryer/LightGreen.visible = state
 	
 	
 	

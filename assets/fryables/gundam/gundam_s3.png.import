@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gundam_big.png-f93dddde4606aa31ac3ddc9830b8108e.stex"
+path="res://.import/gundam_s3.png-cdc80b9c631c4a4ba86912907074aaca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fryables/gundam_big.png"
-dest_files=[ "res://.import/gundam_big.png-f93dddde4606aa31ac3ddc9830b8108e.stex" ]
+source_file="res://assets/fryables/gundam/gundam_s3.png"
+dest_files=[ "res://.import/gundam_s3.png-cdc80b9c631c4a4ba86912907074aaca.stex" ]
 
 [params]
 

@@ -1,35 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/fryables/gundam_s0.png" type="Texture" id=1]
-[ext_resource path="res://components/fryables/fryable.gd" type="Script" id=2]
-[ext_resource path="res://components/fryables/FryerIdentifier.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fryables/gundam/gundam_s3.png" type="Texture" id=1]
+[ext_resource path="res://assets/fryables/gundam/gundam_s1.png" type="Texture" id=2]
+[ext_resource path="res://assets/fryables/gundam/gundam_s2.png" type="Texture" id=3]
+[ext_resource path="res://assets/fryables/gundam/gundam_s0.png" type="Texture" id=4]
+[ext_resource path="res://components/fryables/Fryable.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 28.0
+radius = 30.0
 
-[node name="Gundam" type="RigidBody2D"]
-position = Vector2( -10, 0 )
+[node name="Gundam" instance=ExtResource( 5 )]
 input_pickable = true
-mass = 0.102041
-script = ExtResource( 2 )
+s0Texture = ExtResource( 4 )
+s0Time = 5
+s1Texture = ExtResource( 2 )
+s1Time = 5
+s2Texture = ExtResource( 3 )
+s2Time = 5
+s3Texture = ExtResource( 1 )
+s3Time = 5
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2, 0 )
-scale = Vector2( 0.85, 0.85 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="s0" parent="." index="0"]
+texture = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="s1" parent="." index="1"]
 visible = false
-scale = Vector2( 0.85, 0.85 )
-polygon = PoolVector2Array( 6, -40, 16, -40, 18, -46, 20, -45, 19, -32, 33, -37, 34, -34, 32, -25, 38, -25, 42, -20, 46, -19, 46, -16, 44, -15, 44, -9, 49, -7, 48, -4, 64, 27, 62, 28, 51, 21, 52, 28, 45, 26, 39, 27, 41, 29, 40, 32, 34, 32, 36, 36, 40, 42, 39, 44, 32, 44, 18, 40, 16, 35, 15, 23, 5, 23, 5, 36, 2, 41, -8, 45, -18, 45, -13, 33, -19, 31, -27, 25, -32, 28, -35, 26, -47, 36, -58, 45, -64, 45, -52, 33, -52, 30, -34, 13, -33, 10, -29, 6, -24, -17, -25, -20, -22, -21, -17, -25, -11, -24, -13, -35, -13, -38, 2, -32, 0, -45, 4, -45 )
-disabled = true
+texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 10, 0 )
+[node name="s2" parent="." index="2"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="s3" parent="." index="3"]
+visible = false
+texture = ExtResource( 1 )
+
+[node name="FryerIdentifier" parent="." index="4"]
+position = Vector2( 11, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+position = Vector2( 11, 0 )
 shape = SubResource( 1 )
-
-[node name="FryerIdentifier" parent="." instance=ExtResource( 3 )]
-position = Vector2( 10, 0 )

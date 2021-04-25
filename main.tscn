@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
+[ext_resource path="res://components/FryableSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg" type="AudioStream" id=2]
 [ext_resource path="res://components/deep_fryer/DeepFryer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://components/fryables/Gundam.tscn" type="PackedScene" id=4]
@@ -34,6 +35,18 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 49, 32.8692 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 39.9999, 33 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 49.0001, 33 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 42.0001, 33 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
 __meta__ = {
@@ -41,6 +54,10 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="icon" type="Sprite" parent="Background"]
 modulate = Color( 0, 0, 0, 1 )
@@ -57,14 +74,14 @@ __meta__ = {
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 centered = false
 
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Customer" parent="." instance=ExtResource( 18 )]
@@ -73,10 +90,45 @@ position = Vector2( 412, 261 )
 [node name="DinerCounter" type="Sprite" parent="."]
 texture = ExtResource( 11 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FrenchFriesSpawner" parent="DinerCounter" instance=ExtResource( 1 )]
+position = Vector2( 657, 327 )
+FryableScene = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FrenchFriesSpawner"]
+position = Vector2( 6.10352e-05, 3.05176e-05 )
+shape = SubResource( 3 )
+
+[node name="FryableSpawner2" parent="DinerCounter" instance=ExtResource( 1 )]
+position = Vector2( 754, 398 )
+FryableScene = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FryableSpawner2"]
+shape = SubResource( 4 )
+
+[node name="FryableSpawner3" parent="DinerCounter" instance=ExtResource( 1 )]
+position = Vector2( 659, 398 )
+FryableScene = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FryableSpawner3"]
+shape = SubResource( 5 )
+
+[node name="BurgerSpawner4" parent="DinerCounter" instance=ExtResource( 1 )]
+position = Vector2( 753, 324 )
+FryableScene = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/BurgerSpawner4"]
+shape = SubResource( 6 )
 
 [node name="CashRegister" type="Sprite" parent="."]
 position = Vector2( 71, 218 )
 texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -92,5 +144,4 @@ position = Vector2( 298, 390 )
 position = Vector2( 495, 390 )
 
 [node name="Gundam" parent="." instance=ExtResource( 4 )]
-position = Vector2( 100, 202 )
-rotation = 1.64934
+position = Vector2( 97.3344, 191.291 )
