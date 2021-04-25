@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kasse.png-7d066947cc953b24600b853556ff3ce9.stex"
+path="res://.import/ventilator_f4.png-fa7ed0d41cdcc10f40096a39b0ccd434.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kasse.png"
-dest_files=[ "res://.import/kasse.png-7d066947cc953b24600b853556ff3ce9.stex" ]
+source_file="res://assets/ventilator/ventilator_f4.png"
+dest_files=[ "res://.import/ventilator_f4.png-fa7ed0d41cdcc10f40096a39b0ccd434.stex" ]
 
 [params]
 
