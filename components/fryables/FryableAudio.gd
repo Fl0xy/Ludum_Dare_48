@@ -14,6 +14,7 @@ func _ready():
 	get_parent().connect("oil_exited", self, "on_oil_exited")
 	
 	$Start.connect("finished", self, "on_Start_Finished")
+	$Destory.connect("finished", self, "on_Destory_Finished")
 	
 func _physics_process(delta):
 	if insideOil:
@@ -36,10 +37,10 @@ func on_oil_entered():
 func on_oil_exited():
 	if !destoryed:
 		if $Start.playing:
-			var skip = float( OILSTOPWORKINGLENGTH - (OS.get_unix_time() - oilStartWorkingTime))
+			var skip = float( OILSTOPWORKINGLENGTH - (OS.get_unix_time() - oilStartWorkingTime)) +0.1
 			$Start.stop()
 			$Stop.play(skip)
-		else:
+		elif $Working.playing:
 			$Working.stop()
 			$Stop.play()
 		insideOil = false

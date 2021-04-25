@@ -67,6 +67,8 @@ func _physics_process(delta):
 					$s3.visible = false
 					state = S4
 					mode = RigidBody2D.MODE_STATIC
+					collision_layer = 0
+					collision_mask = 0
 					input_pickable = false
 					$Audio.destory()
 	
