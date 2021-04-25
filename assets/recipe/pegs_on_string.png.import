@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/recipe_fry_3.png-a96ac853374068a8ded7bc5fc785b3fd.stex"
+path="res://.import/pegs_on_string.png-f00b9e2b752ef5c9f812c8815d79fe68.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/recipe/recipe_fry_3.png"
-dest_files=[ "res://.import/recipe_fry_3.png-a96ac853374068a8ded7bc5fc785b3fd.stex" ]
+source_file="res://assets/recipe/pegs_on_string.png"
+dest_files=[ "res://.import/pegs_on_string.png-f00b9e2b752ef5c9f812c8815d79fe68.stex" ]
 
 [params]
 
