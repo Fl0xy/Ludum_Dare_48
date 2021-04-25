@@ -1,5 +1,6 @@
 tool
 extends Node2D
+class_name Recipe
 
 enum numbers { one, two, three, four, five, six, seven, eight, nine, none, random }
 enum fryables { burger, fry, onion, tomato, special, none, random }
@@ -66,19 +67,3 @@ func _enter_tree():
 	set_order_paper(amount_4, fryable_4, frydegree_4, $OrderPaper4)
 	set_order_paper(amount_5, fryable_5, frydegree_5, $OrderPaper5)
 	set_order_paper(amount_6, fryable_6, frydegree_6, $OrderPaper6)
-
-#	# check if all options are set
-#	if (amount_1 == numbers.none) or (fryable_1 == fryables.none) or (frydegree_1 == frydegrees.none):
-#		return
-#	
-#	# randomize if necessary
-#	if amount_1 == numbers.random:
-#		amount_1 = randi() % numbers.size()-2
-#	if fryable_1 == fryables.random:
-#		fryable_1 = randi() % fryables.size()-2
-#	if frydegree_1 == frydegrees.random:
-#		frydegree_1 = randi() % frydegrees.size()-2
-#	
-#	$OrderPaper1.amount = amount_1
-#	$OrderPaper1.fryable = fryable_1
-#	$OrderPaper1.fry_degree = frydegree_1
