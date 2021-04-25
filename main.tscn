@@ -94,7 +94,6 @@ centered = false
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]

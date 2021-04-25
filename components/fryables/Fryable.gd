@@ -25,7 +25,7 @@ const areaModeMask = pow(2,9)
 signal oil_entered
 signal oil_exited
 
-func _ready():	
+func _ready():
 	$s0.texture = s0Texture
 	$s1.texture = s1Texture
 	$s2.texture = s2Texture
