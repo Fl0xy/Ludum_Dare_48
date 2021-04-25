@@ -17,10 +17,12 @@ var inOil: bool = false
 var held: bool = false
 var offset: Vector2 = Vector2.ZERO
 
-signal oil_entered
-signal oil_exited
+onready var orgCollision = collision_layer
+onready var orgMask = collision_mask
+const areaModeCollision = pow(2,19)
+const areaModeMask = pow(2,9)
 
-func _ready():
+func _ready():	
 	$s0.texture = s0Texture
 	$s1.texture = s1Texture
 	$s2.texture = s2Texture
@@ -28,6 +30,8 @@ func _ready():
 	
 	$FryerIdentifier.connect("area_entered", self, "on_FryerIdentifer_Area_entered")
 	$FryerIdentifier.connect("area_exited", self, "on_FryerIdentifer_Area_exited")
+	$TabletIdentifier.connect("area_entered", self, "on_TabletIdentifier_Area_entered")
+	$TabletIdentifier.connect("area_exited", self, "on_TabletIdentifer_Area_exited")
 	
 	state = S0
 	remainingTime = s0Time
@@ -74,19 +78,32 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if held && !event.pressed:
 			drop()
+			print(event)
 			
 func pickup():
 	held = true
+	print(get_name() + " pickedup")
 
 func drop():
 	linear_velocity = Vector2(0,0)
 	held = false
+	print(get_name() + " droped")
 	
 func on_FryerIdentifer_Area_entered(area):
 	inOil = true
 	drop()
-	emit_signal("oil_entered")
+	print("oil entered")
 	
 func on_FryerIdentifer_Area_exited(area):
 	inOil = false
-	emit_signal("oil_exited")
+	print("oil exited")
+	
+func on_TabletIdentifier_Area_entered(area):
+	collision_layer = areaModeCollision
+	collision_mask = areaModeMask
+	print("tablet entered")
+	
+func on_TabletIdentifer_Area_exited(area):
+	collision_layer = orgCollision
+	collision_mask = orgMask
+	print("tablet exited")

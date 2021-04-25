@@ -53,7 +53,8 @@ func _physics_process(delta):
 		if abs(offset.y) > THRESHOLD:
 			print(offset)
 			state = HELD
-			$AudioUnclick.play()
+			if tmpPos.y < -35:
+				$AudioUnclick.play()
 			
 		position = tmpPos
 		
@@ -78,7 +79,7 @@ func _physics_process(delta):
 			state = HELDTHRESHOLD
 			mouseClickedPos = get_global_mouse_position()
 			origin.y = Y_BOT
-			$AudioClick.play()
+			#$AudioClick.play()
 		position = tmpPos
 	
 	if state == FALLING:
@@ -87,6 +88,6 @@ func _physics_process(delta):
 			tmpPos.y = Y_BOT
 			state = BOT
 			origin.y = Y_BOT
-			$AudioClick.play()
+			#$AudioClick.play()
 		position = tmpPos
 	
