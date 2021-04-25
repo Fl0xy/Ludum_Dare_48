@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/deep_fryer_destory_sound.wav-f64ffd3d986043fe546cc9b9ab9d7b34.sample"
+
+[deps]
+
+source_file="res://assets/sounds/deep_fryer/deep_fryer_destory_sound.wav"
+dest_files=[ "res://.import/deep_fryer_destory_sound.wav-f64ffd3d986043fe546cc9b9ab9d7b34.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
