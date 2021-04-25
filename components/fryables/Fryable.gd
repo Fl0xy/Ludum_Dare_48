@@ -73,6 +73,10 @@ func _input_event(viewport, event, shape_idx):
 			if event.button_index == BUTTON_LEFT and event.pressed:
 				offset = event.position-global_position
 				pickup()
+			if event.button_index == BUTTON_WHEEL_UP:
+				global_rotation_degrees += 5
+			if event.button_index == BUTTON_WHEEL_DOWN:
+				global_rotation_degrees -= 5
 			
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:

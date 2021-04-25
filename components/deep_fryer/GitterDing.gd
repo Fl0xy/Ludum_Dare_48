@@ -41,7 +41,7 @@ func _physics_process(delta):
 		if tmpPos.x < origin.x - X_PLAY:
 			tmpPos.x = origin.x - X_PLAY
 		elif tmpPos.x > origin.x + X_PLAY:
-			tmpPos.x = origin.x +X_PLAY
+			tmpPos.x = origin.x + X_PLAY
 		
 		if tmpPos.y <= Y_TOP:
 			tmpPos.y = Y_TOP
