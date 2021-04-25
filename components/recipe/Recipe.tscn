@@ -1,24 +1,59 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://components/recipe/OrderPaper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/recipe/pegs_on_string.png" type="Texture" id=2]
+[ext_resource path="res://components/recipe/Recipe.gd" type="Script" id=3]
 
 [node name="Recipe" type="Node2D"]
+script = ExtResource( 3 )
+amount_2 = 10
+fryable_2 = 6
+frydegree_2 = 5
+amount_3 = 10
+fryable_3 = 6
+frydegree_3 = 5
+amount_4 = 10
+fryable_4 = 6
+frydegree_4 = 5
+amount_5 = 10
+fryable_5 = 6
+frydegree_5 = 5
+amount_6 = 10
+fryable_6 = 6
+frydegree_6 = 5
 
-[node name="OrderPaper5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 237 )
-
-[node name="OrderPaper4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 192 )
-
-[node name="OrderPaper3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 147 )
+[node name="OrderPaper1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 57 )
+fry_degree = -2
 
 [node name="OrderPaper2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 102 )
+amount = 2
+fryable = -2
+fry_degree = 0
 
-[node name="OrderPaper" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 57 )
+[node name="OrderPaper3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 147 )
+amount = 2
+fry_degree = -3
+
+[node name="OrderPaper4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 192 )
+amount = 7
+fryable = 1
+fry_degree = -3
+
+[node name="OrderPaper5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 237 )
+amount = 2
+fryable = 3
+fry_degree = -1
+
+[node name="OrderPaper6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 282 )
+amount = -3
+fryable = -1
+fry_degree = 1
 
 [node name="PegsOnString" type="Sprite" parent="."]
 position = Vector2( 0, 32 )

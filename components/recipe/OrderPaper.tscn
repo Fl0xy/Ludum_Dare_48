@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/recipe/recipe_special_fry_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/recipe/recipe_fry_1.png" type="Texture" id=2]
@@ -13,21 +13,85 @@
 [ext_resource path="res://assets/recipe/recipe_fry_3.png" type="Texture" id=11]
 [ext_resource path="res://assets/recipe/recipe_special_fry_3.png" type="Texture" id=12]
 [ext_resource path="res://assets/recipe/recipe_special.png" type="Texture" id=13]
+[ext_resource path="res://assets/recipe/recipe_number_3.png" type="Texture" id=14]
+[ext_resource path="res://assets/recipe/recipe_number_4.png" type="Texture" id=15]
+[ext_resource path="res://assets/recipe/recipe_number_5.png" type="Texture" id=16]
+[ext_resource path="res://assets/recipe/recipe_number_2.png" type="Texture" id=17]
+[ext_resource path="res://assets/recipe/recipe_x.png" type="Texture" id=18]
+[ext_resource path="res://assets/recipe/recipe_number_7.png" type="Texture" id=19]
+[ext_resource path="res://assets/recipe/recipe_number_6.png" type="Texture" id=20]
+[ext_resource path="res://assets/recipe/recipe_number_1.png" type="Texture" id=21]
+[ext_resource path="res://assets/recipe/recipe_number_9.png" type="Texture" id=22]
+[ext_resource path="res://assets/recipe/recipe_number_8.png" type="Texture" id=23]
+[ext_resource path="res://components/recipe/OrderPaper.gd" type="Script" id=24]
 
 [node name="OrderPaper" type="Node2D"]
+script = ExtResource( 24 )
 __meta__ = {
 "_edit_group_": true
 }
+amount = 6
+fry_degree = 2
 
 [node name="Paper" type="Sprite" parent="."]
 position = Vector2( 0, 24 )
 texture = ExtResource( 5 )
 
+[node name="recipe_x" type="Sprite" parent="."]
+position = Vector2( 0, 24 )
+texture = ExtResource( 18 )
+
+[node name="Number" type="Node2D" parent="."]
+position = Vector2( -25, 30 )
+
+[node name="recipe_number_1" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 21 )
+
+[node name="recipe_number_2" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 17 )
+
+[node name="recipe_number_3" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 14 )
+
+[node name="recipe_number_4" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 15 )
+
+[node name="recipe_number_5" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 16 )
+
+[node name="recipe_number_6" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 20 )
+
+[node name="recipe_number_7" type="Sprite" parent="Number"]
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 19 )
+
+[node name="recipe_number_8" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 23 )
+
+[node name="recipe_number_9" type="Sprite" parent="Number"]
+visible = false
+position = Vector2( 0.5, -0.5 )
+texture = ExtResource( 22 )
+
 [node name="Fryables" type="Node2D" parent="."]
 position = Vector2( 0, 24 )
 
 [node name="Burger" type="Sprite" parent="Fryables"]
-visible = false
 texture = ExtResource( 7 )
 
 [node name="Fry" type="Sprite" parent="Fryables"]
@@ -43,23 +107,23 @@ visible = false
 texture = ExtResource( 3 )
 
 [node name="Special" type="Sprite" parent="Fryables"]
+visible = false
 texture = ExtResource( 13 )
 
 [node name="FryDegree" type="Node2D" parent="."]
 
 [node name="One" type="Sprite" parent="FryDegree"]
 visible = false
-position = Vector2( 0, 81 )
+position = Vector2( 0, 24 )
 texture = ExtResource( 2 )
 
 [node name="Two" type="Sprite" parent="FryDegree"]
 visible = false
-position = Vector2( 0, 81 )
+position = Vector2( 0, 24 )
 texture = ExtResource( 6 )
 
 [node name="Three" type="Sprite" parent="FryDegree"]
-visible = false
-position = Vector2( 0, 81 )
+position = Vector2( 0, 24 )
 texture = ExtResource( 11 )
 
 [node name="SpecialFryDegree" type="Node2D" parent="."]
