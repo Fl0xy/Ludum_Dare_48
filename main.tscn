@@ -57,13 +57,13 @@ __meta__ = {
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 centered = false
 
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="CostumerBase" parent="." instance=ExtResource( 1 )]
