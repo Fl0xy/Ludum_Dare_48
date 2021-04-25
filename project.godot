@@ -18,12 +18,6 @@ config/name="Ludum_Dare_48"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-HairList="*res://components/costumer/hair/HairList.gd"
-HeadList="*res://components/costumer/head/HeadList.gd"
-ShirtList="*res://components/costumer/shirt/ShirtList.gd"
-
 [display]
 
 window/size/width=800
@@ -35,6 +29,8 @@ window/stretch/aspect="keep"
 
 2d_physics/layer_1="std_col"
 2d_physics/layer_6="Oil"
+2d_physics/layer_9="TabletArea"
+2d_physics/layer_10="TabletCol"
 2d_physics/layer_20="for_clicks"
 
 [physics]

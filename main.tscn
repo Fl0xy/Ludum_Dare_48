@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://components/FryableSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg" type="AudioStream" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/ventilator/ventilator_f1.png" type="Texture" id=16]
 [ext_resource path="res://assets/kasse.png" type="Texture" id=17]
 [ext_resource path="res://components/costumer/Customer.tscn" type="PackedScene" id=18]
+[ext_resource path="res://components/Tablet.tscn" type="PackedScene" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -34,6 +35,18 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 50, 400 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 500, 50 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 500, 50 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 50, 400 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 49, 32.8692 )
@@ -74,7 +87,7 @@ __meta__ = {
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
 centered = false
 
@@ -83,6 +96,52 @@ position = Vector2( 715, 56 )
 frames = SubResource( 2 )
 frame = 2
 playing = true
+
+[node name="Borders" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Left" type="StaticBody2D" parent="Borders"]
+position = Vector2( -50, 51 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
+shape = SubResource( 7 )
+
+[node name="Top" type="StaticBody2D" parent="Borders"]
+position = Vector2( 402, -399 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
+shape = SubResource( 8 )
+
+[node name="Bottom" type="StaticBody2D" parent="Borders"]
+position = Vector2( 402, 501 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
+shape = SubResource( 9 )
+
+[node name="Right" type="StaticBody2D" parent="Borders"]
+position = Vector2( 853, 51 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
+shape = SubResource( 10 )
 
 [node name="Customer" parent="." instance=ExtResource( 18 )]
 position = Vector2( 412, 261 )
@@ -130,6 +189,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Tablet" parent="." instance=ExtResource( 19 )]
+position = Vector2( 686, 278 )
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
@@ -145,3 +207,4 @@ position = Vector2( 495, 390 )
 
 [node name="Gundam" parent="." instance=ExtResource( 4 )]
 position = Vector2( 97.3344, 191.291 )
+can_sleep = true
