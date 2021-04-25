@@ -41,6 +41,10 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="icon" type="Sprite" parent="Background"]
 modulate = Color( 0, 0, 0, 1 )
@@ -63,7 +67,7 @@ centered = false
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CostumerBase" parent="." instance=ExtResource( 1 )]
@@ -72,10 +76,16 @@ position = Vector2( 412, 244 )
 [node name="DinerCounter" type="Sprite" parent="."]
 texture = ExtResource( 11 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CashRegister" type="Sprite" parent="."]
 position = Vector2( 71, 218 )
 texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -91,5 +101,4 @@ position = Vector2( 298, 390 )
 position = Vector2( 495, 390 )
 
 [node name="Gundam" parent="." instance=ExtResource( 4 )]
-position = Vector2( 100, 202 )
-rotation = 1.64934
+position = Vector2( 97.3344, 191.291 )
