@@ -51,7 +51,6 @@ func _physics_process(delta):
 			offset.y = THRESHOLD
 			
 		if abs(offset.y) > THRESHOLD:
-			print(offset)
 			state = HELD
 			if tmpPos.y < -35:
 				$AudioUnclick.play()

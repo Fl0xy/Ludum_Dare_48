@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://components/fryables/Fryable.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_stop_working_sound.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_working_sound_loop.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_start_working_sound.wav" type="AudioStream" id=4]
 [ext_resource path="res://components/fryables/FryableAudio.gd" type="Script" id=5]
+[ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_destory_sound.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -62,11 +63,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="OilWorking" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Working" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 3 )
 
-[node name="OilStartWorking" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Start" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 4 )
 
-[node name="OilStopWorking" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Stop" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 2 )
+
+[node name="Destory" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource( 6 )

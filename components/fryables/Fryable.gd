@@ -35,6 +35,7 @@ func _ready():
 	$FryerIdentifier.connect("area_exited", self, "on_FryerIdentifer_Area_exited")
 	$TabletIdentifier.connect("area_entered", self, "on_TabletIdentifier_Area_entered")
 	$TabletIdentifier.connect("area_exited", self, "on_TabletIdentifer_Area_exited")
+	$Audio.connect("finished", self, "on_Audio_finished")
 	
 	state = S0
 	remainingTime = s0Time
@@ -65,7 +66,9 @@ func _physics_process(delta):
 				S3:
 					$s3.visible = false
 					state = S4
-					queue_free()
+					mode = RigidBody2D.MODE_STATIC
+					input_pickable = false
+					$Audio.destory()
 	
 	if held:
 		global_transform.origin = get_global_mouse_position() - offset
@@ -85,7 +88,6 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if held && !event.pressed:
 			drop()
-			print(event)
 			
 func pickup():
 	held = true
@@ -116,3 +118,6 @@ func on_TabletIdentifer_Area_exited(area):
 	collision_layer = orgCollision
 	collision_mask = orgMask
 	print("tablet exited")
+	
+func on_Audio_finished():
+	queue_free()
