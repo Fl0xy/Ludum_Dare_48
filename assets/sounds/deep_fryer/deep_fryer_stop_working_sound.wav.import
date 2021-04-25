@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/deep_fryer_stop_working_sound.wav-1d7cb375a550b60047211e6c0848e857.sample"
+
+[deps]
+
+source_file="res://assets/sounds/deep_fryer/deep_fryer_stop_working_sound.wav"
+dest_files=[ "res://.import/deep_fryer_stop_working_sound.wav-1d7cb375a550b60047211e6c0848e857.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

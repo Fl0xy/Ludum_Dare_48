@@ -24,36 +24,37 @@ frydegree_6 = 5
 
 [node name="OrderPaper1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 57 )
-fry_degree = -2
+amount = 2
+fryable = 1
 
 [node name="OrderPaper2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 102 )
-amount = 2
-fryable = -2
+amount = 0
+fryable = 1
 fry_degree = 0
 
 [node name="OrderPaper3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 147 )
-amount = 2
-fry_degree = -3
+amount = 0
+fryable = 2
+fry_degree = 1
 
 [node name="OrderPaper4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 192 )
-amount = 7
-fryable = 1
-fry_degree = -3
+amount = 5
+fryable = 4
+fry_degree = 3
 
 [node name="OrderPaper5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 237 )
-amount = 2
-fryable = 3
-fry_degree = -1
+amount = 5
+fryable = 2
+fry_degree = 0
 
 [node name="OrderPaper6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 282 )
-amount = -3
-fryable = -1
-fry_degree = 1
+amount = 1
+fry_degree = 3
 
 [node name="PegsOnString" type="Sprite" parent="."]
 position = Vector2( 0, 32 )

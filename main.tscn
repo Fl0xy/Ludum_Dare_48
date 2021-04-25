@@ -36,28 +36,28 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 50, 400 )
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 500, 50 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 500, 50 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 50, 400 )
-
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 49, 32.8692 )
+extents = Vector2( 50, 400 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 39.9999, 33 )
+extents = Vector2( 500, 50 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 49.0001, 33 )
+extents = Vector2( 500, 50 )
 
 [sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 50, 400 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 49, 32.8692 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 39.9999, 33 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 49.0001, 33 )
+
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 42.0001, 33 )
 
 [node name="Main" type="Node2D"]
@@ -87,14 +87,14 @@ __meta__ = {
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 centered = false
 
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -111,7 +111,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="Top" type="StaticBody2D" parent="Borders"]
 position = Vector2( 402, -399 )
@@ -121,7 +121,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Bottom" type="StaticBody2D" parent="Borders"]
 position = Vector2( 402, 501 )
@@ -131,7 +131,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 
 [node name="Right" type="StaticBody2D" parent="Borders"]
 position = Vector2( 853, 51 )
@@ -141,7 +141,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 
 [node name="Customer" parent="." instance=ExtResource( 18 )]
 position = Vector2( 412, 261 )
@@ -159,28 +159,28 @@ FryableScene = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FrenchFriesSpawner"]
 position = Vector2( 6.10352e-05, 3.05176e-05 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="FryableSpawner2" parent="DinerCounter" instance=ExtResource( 1 )]
 position = Vector2( 754, 398 )
 FryableScene = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FryableSpawner2"]
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="FryableSpawner3" parent="DinerCounter" instance=ExtResource( 1 )]
 position = Vector2( 659, 398 )
 FryableScene = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FryableSpawner3"]
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="BurgerSpawner4" parent="DinerCounter" instance=ExtResource( 1 )]
 position = Vector2( 753, 324 )
 FryableScene = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/BurgerSpawner4"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="CashRegister" type="Sprite" parent="."]
 position = Vector2( 71, 218 )

@@ -22,6 +22,9 @@ onready var orgMask = collision_mask
 const areaModeCollision = pow(2,19)
 const areaModeMask = pow(2,9)
 
+signal oil_entered
+signal oil_exited
+
 func _ready():	
 	$s0.texture = s0Texture
 	$s1.texture = s1Texture
@@ -96,10 +99,12 @@ func drop():
 func on_FryerIdentifer_Area_entered(area):
 	inOil = true
 	drop()
+	emit_signal("oil_entered")
 	print("oil entered")
 	
 func on_FryerIdentifer_Area_exited(area):
 	inOil = false
+	emit_signal("oil_exited")
 	print("oil exited")
 	
 func on_TabletIdentifier_Area_entered(area):

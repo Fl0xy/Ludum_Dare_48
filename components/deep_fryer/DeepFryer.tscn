@@ -33,6 +33,10 @@ __meta__ = {
 
 [node name="Fryer" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="LightGreen" type="Light2D" parent="Fryer"]
 position = Vector2( -65, -44 )
@@ -60,7 +64,8 @@ z_index = 999
 z_as_relative = false
 script = ExtResource( 11 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="AudioClick" type="AudioStreamPlayer2D" parent="GitterDing"]
@@ -101,6 +106,7 @@ scale = Vector2( 1.00649, 1 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Oil"]
@@ -108,12 +114,18 @@ visible = false
 position = Vector2( 0, 37 )
 shape = SubResource( 2 )
 
+[node name="OilIdle" type="AudioStreamPlayer2D" parent="Oil"]
+position = Vector2( 0, 40 )
+stream = ExtResource( 9 )
+volume_db = -23.0
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="AudioRelay" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -31 )
 stream = ExtResource( 8 )
 volume_db = -15.0
-
-[node name="OilIdle" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 0, 40 )
-stream = ExtResource( 9 )
-volume_db = -23.0
+__meta__ = {
+"_edit_lock_": true
+}

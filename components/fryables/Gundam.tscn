@@ -38,7 +38,7 @@ position = Vector2( 11, 0 )
 [node name="TabletIdentifier" parent="." index="5"]
 position = Vector2( 11, 0 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
 position = Vector2( 11, 0 )
 shape = SubResource( 1 )
 __meta__ = {
