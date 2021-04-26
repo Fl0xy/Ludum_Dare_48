@@ -10,7 +10,7 @@
 radius = 16.0
 height = 0.0
 
-[node name="Gundam" instance=ExtResource( 5 )]
+[node name="Onion" instance=ExtResource( 5 )]
 input_pickable = true
 type = 2
 s0Texture = ExtResource( 9 )

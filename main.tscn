@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://components/FryableSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg" type="AudioStream" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://assets/ventilator/ventilator_f4.png" type="Texture" id=14]
 [ext_resource path="res://assets/ventilator/ventilator_f3.png" type="Texture" id=15]
 [ext_resource path="res://assets/ventilator/ventilator_f1.png" type="Texture" id=16]
-[ext_resource path="res://assets/kasse.png" type="Texture" id=17]
 [ext_resource path="res://CustomerSpawn.gd" type="Script" id=18]
 [ext_resource path="res://components/Tablet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://components/receipt/ReceiptHolder.tscn" type="PackedScene" id=20]
@@ -24,6 +23,7 @@
 [ext_resource path="res://components/fryables/Tomato.tscn" type="PackedScene" id=22]
 [ext_resource path="res://components/fryables/Onion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://components/fryables/Fry.tscn" type="PackedScene" id=24]
+[ext_resource path="res://components/CashRegister.tscn" type="PackedScene" id=26]
 [ext_resource path="res://components/costumer/SpeechBubble.tscn" type="PackedScene" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -54,16 +54,72 @@ extents = Vector2( 500, 50 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 50, 400 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 49, 32.8692 )
+[sub_resource type="Animation" id=7]
+resource_name = "enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -433, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 39.9999, 33 )
+[sub_resource type="Animation" id=8]
+resource_name = "exit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 494, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 49.0001, 33 )
+extents = Vector2( 49, 32.8692 )
 
 [sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 39.9999, 33 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 49.0001, 33 )
+
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 42.0001, 33 )
 
 [node name="Main" type="Node2D"]
@@ -87,7 +143,7 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 centered = false
 
@@ -102,7 +158,6 @@ __meta__ = {
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -155,8 +210,16 @@ shape = SubResource( 6 )
 position = Vector2( 375, 277 )
 script = ExtResource( 18 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
+
+[node name="container" type="Node2D" parent="CustomerSpawn"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CustomerSpawn"]
+root_node = NodePath("../container")
+anims/enter = SubResource( 7 )
+anims/exit = SubResource( 8 )
 
 [node name="DinerCounter" type="Sprite" parent="."]
 texture = ExtResource( 11 )
@@ -171,35 +234,31 @@ FryableScene = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/FrySpawner"]
 position = Vector2( 6.10352e-05, 3.05176e-05 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="OnionSpawner" parent="DinerCounter" instance=ExtResource( 1 )]
 position = Vector2( 754, 398 )
 FryableScene = ExtResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/OnionSpawner"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="TomatoSpawner" parent="DinerCounter" instance=ExtResource( 1 )]
 position = Vector2( 659, 398 )
 FryableScene = ExtResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/TomatoSpawner"]
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="BurgerSpawner" parent="DinerCounter" instance=ExtResource( 1 )]
 position = Vector2( 753, 324 )
 FryableScene = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/BurgerSpawner"]
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
-[node name="CashRegister" type="Sprite" parent="."]
-position = Vector2( 71, 218 )
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="CashRegister" parent="." instance=ExtResource( 26 )]
+position = Vector2( 66, 211 )
 
 [node name="Tablet" parent="." instance=ExtResource( 19 )]
 position = Vector2( 686, 278 )
@@ -224,3 +283,5 @@ position = Vector2( 682, 190 )
 
 [node name="SpeechBubble" parent="." instance=ExtResource( 27 )]
 position = Vector2( 587, 128 )
+
+[connection signal="animation_finished" from="CustomerSpawn/AnimationPlayer" to="CustomerSpawn" method="_on_AnimationPlayer_animation_finished"]
