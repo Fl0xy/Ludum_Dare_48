@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/deep_fryer.png" type="Texture" id=1]
 [ext_resource path="res://assets/oil_boiling_f2.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://components/deep_fryer/GitterDing.gd" type="Script" id=11]
 [ext_resource path="res://assets/sounds/deep_fryer/BUTTON Generic Metal.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/sounds/deep_fryer/BUTTON Generic Metal reverse.wav" type="AudioStream" id=13]
+[ext_resource path="res://components/deep_fryer/OilParticles.gd" type="Script" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -95,7 +96,6 @@ polygon = PoolVector2Array( -30, -65, -17, -71, 2, -71, 25, -67, 41, -61, 39, -5
 collision_layer = 32
 collision_mask = 0
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -106,18 +106,237 @@ scale = Vector2( 1.00649, 1 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Oil"]
 visible = false
 position = Vector2( 0, 37 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="OilIdle" type="AudioStreamPlayer2D" parent="Oil"]
 position = Vector2( 0, 40 )
 stream = ExtResource( 9 )
 volume_db = -23.0
+autoplay = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Section" type="Node2D" parent="Oil"]
+position = Vector2( -58, 59 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="Oil/Section"]
+enabled = true
+cast_to = Vector2( 0, -35 )
+collision_mask = 16
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesIdle" type="CPUParticles2D" parent="Oil/Section"]
+z_index = 1001
+z_as_relative = false
+amount = 50
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesWork" type="CPUParticles2D" parent="Oil/Section"]
+z_index = 1001
+z_as_relative = false
+emitting = false
+amount = 200
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Section2" type="Node2D" parent="Oil"]
+position = Vector2( -19, 59 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="Oil/Section2"]
+enabled = true
+cast_to = Vector2( 0, -35 )
+collision_mask = 16
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesIdle" type="CPUParticles2D" parent="Oil/Section2"]
+z_index = 1001
+z_as_relative = false
+amount = 50
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesWork" type="CPUParticles2D" parent="Oil/Section2"]
+z_index = 1001
+z_as_relative = false
+emitting = false
+amount = 200
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Section3" type="Node2D" parent="Oil"]
+position = Vector2( 20, 59 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="Oil/Section3"]
+enabled = true
+cast_to = Vector2( 0, -35 )
+collision_mask = 16
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesIdle" type="CPUParticles2D" parent="Oil/Section3"]
+z_index = 1001
+z_as_relative = false
+amount = 50
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesWork" type="CPUParticles2D" parent="Oil/Section3"]
+z_index = 1001
+z_as_relative = false
+emitting = false
+amount = 200
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Section4" type="Node2D" parent="Oil"]
+position = Vector2( 57, 59 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="Oil/Section4"]
+enabled = true
+cast_to = Vector2( 0, -35 )
+collision_mask = 16
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesIdle" type="CPUParticles2D" parent="Oil/Section4"]
+z_index = 1001
+z_as_relative = false
+amount = 50
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParticlesWork" type="CPUParticles2D" parent="Oil/Section4"]
+z_index = 1001
+z_as_relative = false
+emitting = false
+amount = 200
+lifetime = 0.95
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 0.23
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, -98 )
+color = Color( 0.4, 0.317647, 0.117647, 1 )
+hue_variation = 0.05
+hue_variation_random = 0.77
 __meta__ = {
 "_edit_lock_": true
 }

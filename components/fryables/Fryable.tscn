@@ -10,6 +10,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="Fryable" type="RigidBody2D"]
+collision_layer = 17
 can_sleep = false
 script = ExtResource( 1 )
 
