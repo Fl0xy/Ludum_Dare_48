@@ -50,7 +50,7 @@ func place_recip(order : OrderSystem.Order) -> bool:
 	return false
 
 
-func _ready():
+func debug_ready():
 	var point1 = OrderSystem.OrderPoint.new()
 	point1.fryable = OrderSystem.fryables.fry
 	point1.frydegree = OrderSystem.frydegrees.two
@@ -65,11 +65,11 @@ func _ready():
 	order.order_points += [point1]
 	order.order_points += [point2]
 	
-	print(add_recip(order))
-	print(add_recip(order))
-	print(add_recip(order))
-	print(add_recip(order))
-	print(add_recip(order))
-	print(add_recip(order))
-	print(add_recip(order))
-	print(add_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
+	print(place_recip(order))
