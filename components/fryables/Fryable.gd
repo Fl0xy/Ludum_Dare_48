@@ -68,7 +68,7 @@ func _physics_process(delta):
 				S3:
 					$s3.visible = false
 					degree = S4
-					mode = RigidBody2D.MODE_STATIC
+					call_deferred("makeRigid")
 					collision_layer = 0
 					collision_mask = 0
 					input_pickable = false
@@ -98,8 +98,12 @@ func pickup():
 
 func drop():
 	linear_velocity = Vector2(0,0)
+	call_deferred("makeRigid")
 	held = false
-	
+
+func makeRigid():
+	mode = RigidBody2D.MODE_RIGID
+
 func on_FryerIdentifer_Area_entered(area):
 	inOil = true
 	drop()
@@ -118,4 +122,5 @@ func on_TabletIdentifer_Area_exited(area):
 	collision_mask = orgMask
 	
 func on_Audio_finished():
-	queue_free()
+	if !type == fryables.special:
+		queue_free()

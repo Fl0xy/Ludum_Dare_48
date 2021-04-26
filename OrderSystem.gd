@@ -8,6 +8,12 @@ var pendingOrders = []
 var waiting: bool = false
 var sucessfullOrders: int = 0
 
+#VIPs
+var agent47Scene = preload("res://components/costumer/agent47.tscn")
+var agent47Done: bool = false
+var gangsterScene = preload("res://components/costumer/gangster.tscn")
+var gangsterDone: bool = false
+
 signal orderFulfilled
 
 func _ready():
@@ -23,7 +29,20 @@ func waitForNextCustomer():
 
 func createNextCustomer():
 	print("next customer")
-	customerSpawn.nextCustomer();
+	
+	#VIPs
+	#gangster
+	if (sucessfullOrders > 10 && !gangsterDone):
+		customerSpawn.nextCustomer(gangsterScene.instance())
+		gangsterDone = true
+	#agent47
+	elif (sucessfullOrders > 20 && !agent47Done):
+		customerSpawn.nextCustomer(agent47Scene.instance())
+		agent47Done = true
+	else:
+		customerSpawn.nextCustomerRandom()
+		
+		
 	if pendingOrders.size() < 2:
 		waitForNextCustomer()
 	else:
@@ -35,8 +54,9 @@ func on_orderFulfilled():
 		print("order removed ", pendingOrders.size())
 		waitForNextCustomer()
 
-func generateOrder(specialRef=null, specialDegress=0)-> Dtos.Order : 
+func addOrder(costumer, specialRef=null, specialDegress=0): 
 	var order = Dtos.Order.new()
+	order.customerScene = costumer
 	
 	var orderCount = 1
 	if sucessfullOrders > 10:
@@ -73,23 +93,23 @@ func generateOrder(specialRef=null, specialDegress=0)-> Dtos.Order :
 		orderPoint.degree = 1 + randi() % 3
 		orderPoint.amount = 1 + randi() % maxAmout
 		order.order_points.append(orderPoint)
-		
 	
-	
-	return order
-
-func addOrder(order: Dtos.Order):
-	if recipe_holder == null: return
+	if recipe_holder == null:
+		return
 	var scene = ReceiptFactory.construct_receipt(order)
 	scene.visible = false
 	get_node("/root/Main").add_child(scene)
 	get_node("/root/Main/SpeechBubble").showReciept(scene)
+	if order.special != null:
+		order.special.special_ref.position = get_node("/root/Main/SpecialSpawner").global_position
+		get_node("/root/Main").add_child(order.special.special_ref)
+		order.special.special_ref.mode = RigidBody2D.MODE_STATIC
 	#recipe_holder.place_receipt(order)
 	order.receiptScene = scene
 	pendingOrders.append(order)
 
 func fulfillOrder(recipeScene, fryablesArray):
-	var order = findOrder(recipeScene)
+	var order: Dtos.Order = findOrder(recipeScene)
 	
 	var score = 0
 	
@@ -99,7 +119,20 @@ func fulfillOrder(recipeScene, fryablesArray):
 				score += 1
 			else:
 				score -= 1
-	
+				
+	if order.special != null:
+		if order.special.degree == 4:
+			if order.special.special_ref.degree == 4:
+				score += 100
+			else:
+				score -= 100
+			order.special.special_ref.queue_free()
+		else:
+			if findAndDeleteFryable(order.special.special_ref.type, order.special.degree, fryablesArray):
+				score += 100
+			else:
+				score -= 100
+			
 	order.score = score
 	if score > 0:
 		sucessfullOrders += 1

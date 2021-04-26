@@ -35,4 +35,25 @@ func construct_receipt(order : Dtos.Order):
 		
 		i += 1
 	
+	if order.special != null:
+		match i:
+			1:
+				recipe.fryable_1 = 4
+				recipe.frydegree_1 = order.special.degree
+			2:
+				recipe.fryable_2 = 4
+				recipe.frydegree_2 = order.special.degree
+			3:
+				recipe.fryable_3 = 4
+				recipe.frydegree_3 = order.special.degree
+			4:
+				recipe.fryable_4 = 4
+				recipe.frydegree_4 = order.special.degree
+			5:
+				recipe.fryable_5 = 4
+				recipe.frydegree_5 = order.special.degree
+			6:
+				recipe.fryable_6 = 4
+				recipe.frydegree_6 = order.special.degree
+	
 	return recipe
