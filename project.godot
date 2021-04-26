@@ -61,6 +61,7 @@ texture={
 [layer_names]
 
 2d_physics/layer_1="std_col"
+2d_physics/layer_5="Fryables"
 2d_physics/layer_6="Oil"
 2d_physics/layer_9="TabletArea"
 2d_physics/layer_10="TabletCol"
