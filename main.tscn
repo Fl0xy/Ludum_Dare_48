@@ -83,9 +83,8 @@ scale = Vector2( 13.9219, 8.57812 )
 texture = ExtResource( 12 )
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
-modulate = Color( 1, 1, 1, 0.411765 )
+modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 centered = false
 
@@ -97,15 +96,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="pedestrians" type="AnimatedSprite" parent="Background"]
-frames = SubResource( 1 )
-playing = true
-centered = false
-
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -153,6 +147,12 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
 shape = SubResource( 6 )
+
+[node name="CustomerSpawn" type="Position2D" parent="."]
+position = Vector2( 375, 277 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DinerCounter" type="Sprite" parent="."]
 texture = ExtResource( 11 )
@@ -214,12 +214,6 @@ position = Vector2( 298, 390 )
 position = Vector2( 495, 390 )
 
 [node name="RecipeHolder" parent="." instance=ExtResource( 20 )]
-
-[node name="CustomerSpawn" type="Position2D" parent="."]
-position = Vector2( 375, 277 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Emote" parent="." instance=ExtResource( 4 )]
 position = Vector2( 682, 190 )
