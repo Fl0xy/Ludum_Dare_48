@@ -16,7 +16,7 @@ func _ready():
 func waitForNextCustomer():
 	print("Push next customer")
 	waiting = true
-	var timer: SceneTreeTimer = get_tree().create_timer(5.0 + randi() % 20)
+	var timer: SceneTreeTimer = get_tree().create_timer(10.0 + randi() % 20)
 	timer.connect("timeout", self, "createNextCustomer")
 	
 

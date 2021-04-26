@@ -12,6 +12,8 @@ var head = null
 var front_hair = null
 var back_hair = null
 
+signal orderDone
+
 var bodys = [
 	preload("res://components/costumer/bodys/Body_1.tscn"),
 	preload("res://components/costumer/bodys/Body_2.tscn"),
@@ -81,18 +83,18 @@ func _ready():
 	front_hair.position = back_hair.position
 	
 	if !Engine.is_editor_hint():
-		var timer: SceneTreeTimer = get_tree().create_timer(1.0)
+		var timer: SceneTreeTimer = get_tree().create_timer(3.0)
 		timer.connect("timeout", self, "makeOrder")
 	
 func makeOrder():
 	var order: Dtos.Order = OrderSystem.generateOrder(1)
 	order.customerScene = self
 	OrderSystem.addOrder(order)
-	var timer: SceneTreeTimer = get_tree().create_timer(3)
-	timer.connect("timeout", self, "invisibleHelper")
+	var timer: SceneTreeTimer = get_tree().create_timer(5)
+	timer.connect("timeout", self, "orderDoneHelper")
 	
-func invisibleHelper():
-	visible = false
+func orderDoneHelper():
+	emit_signal("orderDone")
 	
 func getHead():
 	return head
