@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/vips/gangster/gangster_body.png" type="Texture" id=1]
+[ext_resource path="res://assets/vips/gangster/gangster_head.png" type="Texture" id=2]
+[ext_resource path="res://components/costumer/vip.gd" type="Script" id=3]
+[ext_resource path="res://components/fryables/sturmmaske.tscn" type="PackedScene" id=4]
+
+[node name="gangster" type="Node2D"]
+position = Vector2( 0, -68 )
+script = ExtResource( 3 )
+special = ExtResource( 4 )
+
+[node name="body" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="head" type="Sprite" parent="."]
+position = Vector2( -13, -56 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}

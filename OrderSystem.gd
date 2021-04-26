@@ -11,6 +11,8 @@ var sucessfullOrders: int = 0
 #VIPs
 var agent47Scene = preload("res://components/costumer/agent47.tscn")
 var agent47Done: bool = false
+var gangsterScene = preload("res://components/costumer/gangster.tscn")
+var gangsterDone: bool = false
 
 signal orderFulfilled
 
@@ -29,8 +31,12 @@ func createNextCustomer():
 	print("next customer")
 	
 	#VIPs
+	#gangster
+	if (sucessfullOrders > 10 && !gangsterDone):
+		customerSpawn.nextCustomer(gangsterScene.instance())
+		gangsterDone = true
 	#agent47
-	if (sucessfullOrders > 10 && !agent47Done):
+	elif (sucessfullOrders > 20 && !agent47Done):
 		customerSpawn.nextCustomer(agent47Scene.instance())
 		agent47Done = true
 	else:

@@ -2,7 +2,8 @@ extends Node2D
 
 signal orderDone
 
-var specialScene: PackedScene = preload("res://components/fryables/gun.tscn")
+export(PackedScene) var special: PackedScene
+export(int) var degree = 4
 
 func _ready():
 	if !Engine.is_editor_hint():
@@ -10,7 +11,7 @@ func _ready():
 		timer.connect("timeout", self, "makeOrder")
 	
 func makeOrder():
-	var order: Dtos.Order = OrderSystem.addOrder(self, specialScene.instance(), 4)
+	var order: Dtos.Order = OrderSystem.addOrder(self, special.instance(), degree)
 	var timer: SceneTreeTimer = get_tree().create_timer(5)
 	timer.connect("timeout", self, "orderDoneHelper")
 	
