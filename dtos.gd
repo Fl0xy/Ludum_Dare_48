@@ -13,7 +13,7 @@ class SpecialOrderPoint:
 
 class Order:
 	var order_points = []
-	var special
+	var special: SpecialOrderPoint = null
 	var receiptScene
 	var customerScene
 	var score: int
