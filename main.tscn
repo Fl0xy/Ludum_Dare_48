@@ -16,7 +16,6 @@
 [ext_resource path="res://assets/ventilator/ventilator_f4.png" type="Texture" id=14]
 [ext_resource path="res://assets/ventilator/ventilator_f3.png" type="Texture" id=15]
 [ext_resource path="res://assets/ventilator/ventilator_f1.png" type="Texture" id=16]
-[ext_resource path="res://assets/kasse.png" type="Texture" id=17]
 [ext_resource path="res://CustomerSpawn.gd" type="Script" id=18]
 [ext_resource path="res://components/Tablet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://components/receipt/ReceiptHolder.tscn" type="PackedScene" id=20]
@@ -24,6 +23,7 @@
 [ext_resource path="res://components/fryables/Tomato.tscn" type="PackedScene" id=22]
 [ext_resource path="res://components/fryables/Onion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://components/fryables/Fry.tscn" type="PackedScene" id=24]
+[ext_resource path="res://components/CashRegister.tscn" type="PackedScene" id=26]
 [ext_resource path="res://components/costumer/SpeechBubble.tscn" type="PackedScene" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -87,7 +87,7 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 centered = false
 
@@ -194,12 +194,8 @@ FryableScene = ExtResource( 21 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DinerCounter/BurgerSpawner"]
 shape = SubResource( 10 )
 
-[node name="CashRegister" type="Sprite" parent="."]
-position = Vector2( 71, 218 )
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="CashRegister" parent="." instance=ExtResource( 26 )]
+position = Vector2( 66, 211 )
 
 [node name="Tablet" parent="." instance=ExtResource( 19 )]
 position = Vector2( 686, 278 )

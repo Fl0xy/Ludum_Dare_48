@@ -48,6 +48,7 @@ func _physics_process(delta):
 			$Happy.visible = true
 			$Money.visible = true
 			$AnimationPlayer.play("money")
+			get_node("/root/Main/CashRegister").addOneMoney()
 			$coin.play()
 		else:
 			$Angry.visible = true

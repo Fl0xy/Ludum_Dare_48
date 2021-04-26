@@ -82,7 +82,7 @@ texture = ExtResource( 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GitterDing"]
 visible = false
-polygon = PoolVector2Array( -104, 4, -104, 90, 96, 92, 95, 1, 54, 2, 55, 65, -71, 67, -71, 4 )
+polygon = PoolVector2Array( -104, 4, -106, 153, 99, 155, 95, 1, 54, 2, 55, 65, -71, 67, -71, 4 )
 
 [node name="Area2D" type="Area2D" parent="GitterDing"]
 collision_layer = 524288
@@ -106,7 +106,6 @@ scale = Vector2( 1.00649, 1 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
