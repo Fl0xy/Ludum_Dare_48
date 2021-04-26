@@ -1,47 +1,54 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/fryables/gundam/gundam_s3.png" type="Texture" id=1]
-[ext_resource path="res://assets/fryables/gundam/gundam_s1.png" type="Texture" id=2]
-[ext_resource path="res://assets/fryables/gundam/gundam_s2.png" type="Texture" id=3]
-[ext_resource path="res://assets/fryables/gundam/gundam_s0.png" type="Texture" id=4]
 [ext_resource path="res://components/fryables/Fryable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fryables/onion/onion_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/fryables/onion/onion_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/fryables/onion/onion_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/fryables/onion/onion_0.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 30.0
+radius = 16.0
+height = 0.0
 
 [node name="Gundam" instance=ExtResource( 5 )]
 modulate = Color( 0.447059, 0.368627, 0.368627, 1 )
 input_pickable = true
 type = 2
-s0Texture = ExtResource( 4 )
+s0Texture = ExtResource( 9 )
 s0Time = 5
-s1Texture = ExtResource( 2 )
+s1Texture = ExtResource( 6 )
 s1Time = 5
-s2Texture = ExtResource( 3 )
+s2Texture = ExtResource( 7 )
 s2Time = 5
-s3Texture = ExtResource( 1 )
+s3Texture = ExtResource( 8 )
 s3Time = 5
 
 [node name="s0" parent="." index="0"]
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="s1" parent="." index="1"]
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 
 [node name="s2" parent="." index="2"]
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 
 [node name="s3" parent="." index="3"]
-texture = ExtResource( 1 )
+texture = ExtResource( 8 )
 
 [node name="FryerIdentifier" parent="." index="4"]
 position = Vector2( 11, 0 )
 
+[node name="CollisionShape2D" parent="FryerIdentifier" index="0"]
+position = Vector2( -11, 0 )
+
 [node name="TabletIdentifier" parent="." index="5"]
 position = Vector2( 11, 0 )
 
+[node name="CollisionShape2D" parent="TabletIdentifier" index="0"]
+position = Vector2( -11, 0 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
-position = Vector2( 11, 0 )
+position = Vector2( -1, 1 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
