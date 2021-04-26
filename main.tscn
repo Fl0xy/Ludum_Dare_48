@@ -85,6 +85,7 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 centered = false
 

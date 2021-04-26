@@ -71,7 +71,7 @@ playing = true
 visible = false
 position = Vector2( -38, -78 )
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Money" type="Sprite" parent="."]
@@ -89,5 +89,3 @@ stream = ExtResource( 9 )
 
 [node name="no" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
-
-[connection signal="finished" from="coin" to="." method="_on_coin_finished"]
