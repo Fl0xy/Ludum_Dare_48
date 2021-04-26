@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 const X_PLAY = 3
-const Y_TOP = -52
+const Y_TOP = -104
 const Y_BOT = -12
 const THRESHOLD = 5
 const FALL_VEC = Vector2(0,0.5)
