@@ -4,26 +4,26 @@
 [ext_resource path="res://assets/recipe/recipe_fry_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/recipe/recipe_tomato.png" type="Texture" id=3]
 [ext_resource path="res://assets/recipe/recipe_special_fry_death.png" type="Texture" id=4]
-[ext_resource path="res://assets/recipe/recipe_paper_base.png" type="Texture" id=5]
-[ext_resource path="res://assets/recipe/recipe_fry_2.png" type="Texture" id=6]
-[ext_resource path="res://assets/recipe/recipe_burger.png" type="Texture" id=7]
+[ext_resource path="res://assets/recipe/recipe_burger.png" type="Texture" id=5]
+[ext_resource path="res://assets/recipe/recipe_paper_base.png" type="Texture" id=6]
+[ext_resource path="res://assets/recipe/recipe_fry_2.png" type="Texture" id=7]
 [ext_resource path="res://assets/recipe/recipe_frys.png" type="Texture" id=8]
 [ext_resource path="res://assets/recipe/recipe_onion.png" type="Texture" id=9]
-[ext_resource path="res://assets/recipe/recipe_special_fry_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/recipe/recipe_special_fry_3.png" type="Texture" id=10]
 [ext_resource path="res://assets/recipe/recipe_fry_3.png" type="Texture" id=11]
-[ext_resource path="res://assets/recipe/recipe_special_fry_3.png" type="Texture" id=12]
-[ext_resource path="res://assets/recipe/recipe_special.png" type="Texture" id=13]
-[ext_resource path="res://assets/recipe/recipe_number_3.png" type="Texture" id=14]
-[ext_resource path="res://assets/recipe/recipe_number_4.png" type="Texture" id=15]
-[ext_resource path="res://assets/recipe/recipe_number_5.png" type="Texture" id=16]
+[ext_resource path="res://assets/recipe/recipe_special_fry_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/recipe/recipe_number_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/recipe/recipe_number_5.png" type="Texture" id=14]
+[ext_resource path="res://assets/recipe/recipe_special.png" type="Texture" id=15]
+[ext_resource path="res://assets/recipe/recipe_number_4.png" type="Texture" id=16]
 [ext_resource path="res://assets/recipe/recipe_number_2.png" type="Texture" id=17]
-[ext_resource path="res://assets/recipe/recipe_x.png" type="Texture" id=18]
-[ext_resource path="res://assets/recipe/recipe_number_7.png" type="Texture" id=19]
-[ext_resource path="res://assets/recipe/recipe_number_6.png" type="Texture" id=20]
-[ext_resource path="res://assets/recipe/recipe_number_1.png" type="Texture" id=21]
-[ext_resource path="res://assets/recipe/recipe_number_9.png" type="Texture" id=22]
-[ext_resource path="res://assets/recipe/recipe_number_8.png" type="Texture" id=23]
-[ext_resource path="res://components/recipe/OrderPaper.gd" type="Script" id=24]
+[ext_resource path="res://assets/recipe/recipe_number_7.png" type="Texture" id=18]
+[ext_resource path="res://assets/recipe/recipe_x.png" type="Texture" id=19]
+[ext_resource path="res://assets/recipe/recipe_number_1.png" type="Texture" id=20]
+[ext_resource path="res://assets/recipe/recipe_number_6.png" type="Texture" id=21]
+[ext_resource path="res://assets/recipe/recipe_number_8.png" type="Texture" id=22]
+[ext_resource path="res://assets/recipe/recipe_number_9.png" type="Texture" id=23]
+[ext_resource path="res://components/receipt/OrderPaper.gd" type="Script" id=24]
 
 [node name="OrderPaper" type="Node2D"]
 script = ExtResource( 24 )
@@ -35,11 +35,11 @@ fry_degree = 2
 
 [node name="Paper" type="Sprite" parent="."]
 position = Vector2( 0, 24 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="recipe_x" type="Sprite" parent="."]
 position = Vector2( 0, 24 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="Number" type="Node2D" parent="."]
 position = Vector2( -25, 30 )
@@ -47,52 +47,52 @@ position = Vector2( -25, 30 )
 [node name="recipe_number_1" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="recipe_number_2" type="Sprite" parent="Number"]
-visible = false
 position = Vector2( 0.5, -0.5 )
 texture = ExtResource( 17 )
 
 [node name="recipe_number_3" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
 [node name="recipe_number_4" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="recipe_number_5" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 16 )
+texture = ExtResource( 14 )
 
 [node name="recipe_number_6" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 
 [node name="recipe_number_7" type="Sprite" parent="Number"]
+visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 
 [node name="recipe_number_8" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="recipe_number_9" type="Sprite" parent="Number"]
 visible = false
 position = Vector2( 0.5, -0.5 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 
 [node name="Fryables" type="Node2D" parent="."]
 position = Vector2( 0, 24 )
 
 [node name="Burger" type="Sprite" parent="Fryables"]
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
 [node name="Fry" type="Sprite" parent="Fryables"]
 visible = false
@@ -108,7 +108,7 @@ texture = ExtResource( 3 )
 
 [node name="Special" type="Sprite" parent="Fryables"]
 visible = false
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
 [node name="FryDegree" type="Node2D" parent="."]
 
@@ -118,11 +118,11 @@ position = Vector2( 0, 24 )
 texture = ExtResource( 2 )
 
 [node name="Two" type="Sprite" parent="FryDegree"]
-visible = false
 position = Vector2( 0, 24 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Three" type="Sprite" parent="FryDegree"]
+visible = false
 position = Vector2( 0, 24 )
 texture = ExtResource( 11 )
 
@@ -137,12 +137,12 @@ texture = ExtResource( 1 )
 [node name="Two" type="Sprite" parent="SpecialFryDegree"]
 visible = false
 position = Vector2( 0, -21 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="Three" type="Sprite" parent="SpecialFryDegree"]
 visible = false
 position = Vector2( 0, -21 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 
 [node name="Death" type="Sprite" parent="SpecialFryDegree"]
 visible = false

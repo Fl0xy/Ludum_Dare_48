@@ -1,6 +1,8 @@
 tool
 extends RigidBody2D
 
+enum fryables { burger, fry, onion, tomato, special }
+export(fryables) var type = fryables.special
 export(Texture) var s0Texture: Texture
 export(int) var s0Time: int
 export(Texture) var s1Texture: Texture
@@ -11,7 +13,7 @@ export(Texture) var s3Texture: Texture
 export(int) var s3Time: int
 
 enum {S0, S1, S2, S3, S4}
-var state
+var degree
 var remainingTime: float = 0;
 var inOil: bool = false
 var held: bool = false
@@ -37,7 +39,7 @@ func _ready():
 	$TabletIdentifier.connect("area_exited", self, "on_TabletIdentifer_Area_exited")
 	$Audio.connect("finished", self, "on_Audio_finished")
 	
-	state = S0
+	degree = S0
 	remainingTime = s0Time
 	$s1.visible = false
 	$s2.visible = false
@@ -47,25 +49,25 @@ func _physics_process(delta):
 	if inOil:
 		remainingTime -= delta
 		if remainingTime <= 0:
-			match state:
+			match degree:
 				S0:
 					$s0.visible = false
 					$s1.visible = true
-					state = S1
+					degree = S1
 					remainingTime = s1Time
 				S1:
 					$s1.visible = false
 					$s2.visible = true
-					state = S2
+					degree = S2
 					remainingTime = s2Time
 				S2:
 					$s2.visible = false
 					$s3.visible = true
-					state = S3
+					degree = S3
 					remainingTime = s3Time
 				S3:
 					$s3.visible = false
-					state = S4
+					degree = S4
 					mode = RigidBody2D.MODE_STATIC
 					collision_layer = 0
 					collision_mask = 0

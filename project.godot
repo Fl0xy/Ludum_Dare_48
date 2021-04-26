@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "RigidBody2D",
 "class": "Recipe",
 "language": "GDScript",
-"path": "res://components/recipe/Recipe.gd"
+"path": "res://components/receipt/Receipt.gd"
 } ]
 _global_script_class_icons={
 "Recipe": ""
@@ -26,7 +26,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Dtos="*res://dtos.gd"
 OrderSystem="*res://OrderSystem.gd"
+CustomerSystem="*res://CustomerSystem.gd"
 
 [display]
 
@@ -65,6 +67,7 @@ texture={
 2d_physics/layer_6="Oil"
 2d_physics/layer_9="TabletArea"
 2d_physics/layer_10="TabletCol"
+2d_physics/layer_13="orders"
 2d_physics/layer_20="for_clicks"
 
 [physics]
