@@ -95,33 +95,27 @@ func _unhandled_input(event):
 			
 func pickup():
 	held = true
-	print(get_name() + " pickedup")
 
 func drop():
 	linear_velocity = Vector2(0,0)
 	held = false
-	print(get_name() + " droped")
 	
 func on_FryerIdentifer_Area_entered(area):
 	inOil = true
 	drop()
 	emit_signal("oil_entered")
-	print("oil entered")
 	
 func on_FryerIdentifer_Area_exited(area):
 	inOil = false
 	emit_signal("oil_exited")
-	print("oil exited")
 	
 func on_TabletIdentifier_Area_entered(area):
 	collision_layer = areaModeCollision
 	collision_mask = areaModeMask
-	print("tablet entered")
 	
 func on_TabletIdentifer_Area_exited(area):
 	collision_layer = orgCollision
 	collision_mask = orgMask
-	print("tablet exited")
 	
 func on_Audio_finished():
 	queue_free()

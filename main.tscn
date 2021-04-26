@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://components/FryableSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg" type="AudioStream" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://assets/ventilator/ventilator_f3.png" type="Texture" id=15]
 [ext_resource path="res://assets/ventilator/ventilator_f1.png" type="Texture" id=16]
 [ext_resource path="res://assets/kasse.png" type="Texture" id=17]
-[ext_resource path="res://components/costumer/Customer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://components/Tablet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://components/receipt/ReceiptHolder.tscn" type="PackedScene" id=20]
 [ext_resource path="res://components/fryables/Burger.tscn" type="PackedScene" id=21]
@@ -91,13 +90,14 @@ __meta__ = {
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 centered = false
 
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -204,9 +204,6 @@ position = Vector2( 298, 390 )
 
 [node name="DeepFryer3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 495, 390 )
-
-[node name="Customer" parent="." instance=ExtResource( 18 )]
-position = Vector2( 375, 277 )
 
 [node name="RecipeHolder" parent="." instance=ExtResource( 20 )]
 

@@ -11,20 +11,24 @@ func _ready():
 	connect("orderFulfilled", self, "on_orderFulfilled")
 	
 func waitForNextCustomer():
+	print("Push next customer")
 	waiting = true
-	var timer: SceneTreeTimer = get_tree().create_timer(2.0 + randi() % 20)
+	var timer: SceneTreeTimer = get_tree().create_timer(5.0 + randi() % 20)
 	timer.connect("timeout", self, "createNextCustomer")
 	
 
 func createNextCustomer():
+	print("next customer")
 	CustomerSystem.nextCustomer();
 	if pendingOrders.size() < 2:
 		waitForNextCustomer()
 	else:
+		print("Orders full -> wait for free")
 		waiting = false
 		
 func on_orderFulfilled():
 	if !waiting:
+		print("order removed ", pendingOrders.size())
 		waitForNextCustomer()
 
 func generateOrder(length:int, specialRef=null, specialDegress=0)-> Dtos.Order : 
@@ -48,7 +52,6 @@ func addOrder(order: Dtos.Order):
 	var scene = recipe_holder.place_receipt(order)
 	order.receiptScene = scene
 	pendingOrders.append(order)
-	
 
 func fulfillOrder(recipeScene, fryablesArray):
 	var order = findOrder(recipeScene)
@@ -72,7 +75,7 @@ func fulfillOrder(recipeScene, fryablesArray):
 	
 	order.customerScene.queue_free()
 	pendingOrders.erase(order)
-	emit_signal("orderFulfill")
+	emit_signal("orderFulfilled")
 
 
 func findOrder(recipeScene)-> Dtos.Order:
