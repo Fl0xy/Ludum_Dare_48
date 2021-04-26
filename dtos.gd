@@ -16,3 +16,4 @@ class Order:
 	var special
 	var receiptScene
 	var customerScene
+	var score: int

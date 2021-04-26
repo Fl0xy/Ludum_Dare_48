@@ -69,3 +69,5 @@ func makeOrder():
 func invisibleHelper():
 	visible = false
 	
+func getHeadScene():
+	return head

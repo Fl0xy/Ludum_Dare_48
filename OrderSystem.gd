@@ -1,14 +1,15 @@
 extends Node
 
 var recipe_holder # reference is set from the RecipHolder itself
+var emote
 var pendingOrders = []
 var waiting: bool = false
 
 signal orderFulfilled
 
 func _ready():
-	waitForNextCustomer()
 	connect("orderFulfilled", self, "on_orderFulfilled")
+	createNextCustomer()
 	
 func waitForNextCustomer():
 	print("Push next customer")
@@ -65,15 +66,15 @@ func fulfillOrder(recipeScene, fryablesArray):
 			else:
 				score -= 1
 	
+	order.score = score
 	print(score)
 	
 	for fryable in fryablesArray:
 		fryable.queue_free()
 	recipeScene.queue_free()
 	
-	# TODO animation
+	emote.playEmote(order)
 	
-	order.customerScene.queue_free()
 	pendingOrders.erase(order)
 	emit_signal("orderFulfilled")
 
