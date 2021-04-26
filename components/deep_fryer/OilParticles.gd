@@ -13,10 +13,8 @@ func _physics_process(delta):
 	if col:
 		$ParticlesIdle.emitting = false
 		$ParticlesWork.emitting = true
-		print("party")
 		col_old = true
 	else:
 		$ParticlesWork.emitting = false
 		$ParticlesIdle.emitting = true
-		print("no party")
 		col_old = false

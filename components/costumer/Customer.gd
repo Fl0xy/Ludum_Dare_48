@@ -55,3 +55,17 @@ func _ready():
 	head.position = body.get_node("Head").position
 	back_hair.position = head.position + head.get_node("Hair").position
 	front_hair.position = back_hair.position
+	if !Engine.is_editor_hint():
+		var timer: SceneTreeTimer = get_tree().create_timer(1.0)
+		timer.connect("timeout", self, "makeOrder")
+	
+func makeOrder():
+	var order: Dtos.Order = OrderSystem.generateOrder(1)
+	order.customerScene = self
+	OrderSystem.addOrder(order)
+	var timer: SceneTreeTimer = get_tree().create_timer(1.0)
+	timer.connect("timeout", self, "invisibleHelper")
+	
+func invisibleHelper():
+	visible = false
+	

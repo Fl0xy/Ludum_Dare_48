@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://components/receipt/Receipt.gd" type="Script" id=1]
+[ext_resource path="res://components/receipt/OrderPaper.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 45, 23 )
+
+[node name="Recipe" type="RigidBody2D"]
+z_as_relative = false
+input_pickable = true
+collision_layer = 4097
+mode = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+amount_1 = 10
+frydegree_1 = 5
+amount_2 = 9
+frydegree_2 = 4
+amount_3 = 9
+frydegree_3 = 4
+amount_4 = 9
+frydegree_4 = 4
+amount_5 = 9
+frydegree_5 = 4
+amount_6 = 9
+frydegree_6 = 4
+
+[node name="OrderPaper1" parent="." instance=ExtResource( 2 )]
+amount = 10
+fryable = 2
+fry_degree = 5
+
+[node name="CollisionShape1" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 23 )
+shape = SubResource( 1 )
+
+[node name="OrderPaper2" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 45 )
+amount = 5
+fryable = 3
+fry_degree = 3
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 68 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="OrderPaper3" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 90 )
+amount = 3
+fryable = 2
+fry_degree = 1
+
+[node name="CollisionShape3" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 113 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="OrderPaper4" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 135 )
+amount = 4
+fryable = 3
+fry_degree = 1
+
+[node name="CollisionShape4" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 158 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="OrderPaper5" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 180 )
+amount = 0
+fryable = 4
+fry_degree = 1
+
+[node name="CollisionShape5" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 203 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="OrderPaper6" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 225 )
+amount = 2
+fryable = 2
+
+[node name="CollisionShape6" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 248 )
+shape = SubResource( 1 )
+disabled = true

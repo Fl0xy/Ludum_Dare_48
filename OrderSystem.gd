@@ -1,60 +1,90 @@
 extends Node
 
-enum fryables { burger, fry, onion, tomato, special }
-export(fryables) var fryable
-
-enum frydegrees { one, two, three, death }
-export(frydegrees) var fry_degree
-
-class OrderPoint:
-	var fryable
-	var frydegree
-	var amount
-	var special_ref = null
-
-class Order:
-	var order_points = []
-
-#class Order:
-#	var fry = [0,0,0] # amount_degree_1, amount_degree2, ...
-#	var onion = [0,0,0]
-#	var tomato = [0,0,0]
-#	var burger = [0,0,0]
-#	var special = [[0,null]] # [degree,node_ref]
-
-var waiting_orders = []
 var recipe_holder # reference is set from the RecipHolder itself
+var pendingOrders = []
+var waiting: bool = false
 
-func order_smth(order : Order):
-	waiting_orders += [order]
-	recipe_holder.place_recip(order)
+signal orderFulfilled
 
-
-
-
-func get_order_from_recipe(recipe):
-	# TODO
-	pass
-
-
-# NOTE: THIS ONLY WORKS IF THERE ARE NO POINTS WITH EQUAL FRY ABLE DEGREE
-func is_recipe_matching_order(recipe, order) -> bool:
-	var recipe_order = get_order_from_recipe(recipe)
-	for point1 in order.order_points:
-		var found_equal_point = false
-		for point2 in recipe_order.order_points:
-			if point1.fryable != point2.fryable: continue
-			if point1.frydegree != point2.frydegree: continue
-			if point1.amount != point2.amount: continue
-			if point1.special_ref != point2.special_ref: continue
-			found_equal_point = true
-			break
-		if not found_equal_point: return false
-	return true
+func _ready():
+	waitForNextCustomer()
+	connect("orderFulfilled", self, "on_orderFulfilled")
+	
+func waitForNextCustomer():
+	waiting = true
+	var timer: SceneTreeTimer = get_tree().create_timer(2.0 + randi() % 20)
+	timer.connect("timeout", self, "createNextCustomer")
 	
 
-func is_recipe_matching_a_waiting_order(recipe):
-	for order in waiting_orders:
-		if is_recipe_matching_order(recipe, order):
-			return true;
+func createNextCustomer():
+	CustomerSystem.nextCustomer();
+	if pendingOrders.size() < 2:
+		waitForNextCustomer()
+	else:
+		waiting = false
+		
+func on_orderFulfilled():
+	if !waiting:
+		waitForNextCustomer()
+
+func generateOrder(length:int, specialRef=null, specialDegress=0)-> Dtos.Order : 
+	var order = Dtos.Order.new()
+	for i in range(length):
+		var orderPoint = Dtos.OrderPoint.new() 
+		orderPoint.fryable = randi() % (Dtos.EFryables.size()-1)
+		orderPoint.degree = 1 + randi() % 3
+		orderPoint.amount = 1 + randi() % 5
+		order.order_points.append(orderPoint)
+		
+	if specialRef != null:
+		var specialOrder = Dtos.SpecialOrderPoint.new()
+		specialOrder.special_ref = specialRef
+		specialOrder.degree = specialDegress
+		order.special = specialOrder
+	
+	return order
+
+func addOrder(order: Dtos.Order):
+	var scene = recipe_holder.place_receipt(order)
+	order.receiptScene = scene
+	pendingOrders.append(order)
+	
+
+func fulfillOrder(recipeScene, fryablesArray):
+	var order = findOrder(recipeScene)
+	
+	var score = 0
+	
+	for orderPoint in order.order_points:
+		for i in range(orderPoint.amount):
+			if findAndDeleteFryable(orderPoint.fryable, orderPoint.degree, fryablesArray):
+				score += 1
+			else:
+				score -= 1
+	
+	print(score)
+	
+	for fryable in fryablesArray:
+		fryable.queue_free()
+	recipeScene.queue_free()
+	
+	# TODO animation
+	
+	order.customerScene.queue_free()
+	pendingOrders.erase(order)
+	emit_signal("orderFulfill")
+
+
+func findOrder(recipeScene)-> Dtos.Order:
+	for order in pendingOrders:
+		if order.receiptScene == recipeScene:
+			return order
+	return null
+	
+func findAndDeleteFryable(fryableType, degree, fryablesArray) -> bool:
+	for fryable in fryablesArray:
+		if fryable.type == fryableType and fryable.degree == degree:
+			fryablesArray.erase(fryable)
+			fryable.queue_free()
+			return true
 	return false

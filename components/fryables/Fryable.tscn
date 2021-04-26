@@ -13,6 +13,7 @@
 collision_layer = 17
 can_sleep = false
 script = ExtResource( 1 )
+type = 0
 
 [node name="s0" type="Sprite" parent="."]
 __meta__ = {
