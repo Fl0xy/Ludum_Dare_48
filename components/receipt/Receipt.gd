@@ -38,6 +38,7 @@ func addOrder(orderPoint: Dtos.OrderPoint):
 func addSpecial(specialOrderPoint: Dtos.SpecialOrderPoint):
 	add_order_paper(0, fryables.special, specialOrderPoint.degree)
 
+signal destory(node)
 
 func add_order_paper(amount, fryable, frydegree):
 	# check if all options are set
@@ -99,3 +100,9 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	if held:
 		global_transform.origin = get_global_mouse_position() - offset
+		
+
+
+
+func _on_Recipe_tree_exiting():
+	emit_signal("destory", self)

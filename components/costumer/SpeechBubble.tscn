@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/speech_bubble/bubble_f1.png" type="Texture" id=1]
+[ext_resource path="res://assets/speech_bubble/bubble_f4.png" type="Texture" id=2]
+[ext_resource path="res://assets/speech_bubble/bubble_f5.png" type="Texture" id=3]
+[ext_resource path="res://components/costumer/SpeechBubble.gd" type="Script" id=4]
+[ext_resource path="res://assets/speech_bubble/bubble_f3.png" type="Texture" id=5]
+[ext_resource path="res://assets/speech_bubble/bubble_f7.png" type="Texture" id=6]
+[ext_resource path="res://assets/speech_bubble/bubble_f2.png" type="Texture" id=7]
+[ext_resource path="res://assets/speech_bubble/bubble_f6.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="SpeechBubble" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="AnimatedDeploy" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RecieptPos" type="Position2D" parent="."]
+position = Vector2( 0, -107 )
+
+[node name="AnimatedDestory" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="animation_finished" from="AnimatedDeploy" to="." method="_on_AnimatedDeploy_animation_finished"]
+[connection signal="animation_finished" from="AnimatedDestory" to="." method="_on_AnimatedDestory_animation_finished"]

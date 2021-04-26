@@ -28,7 +28,7 @@ config/icon="res://icon.png"
 
 Dtos="*res://dtos.gd"
 OrderSystem="*res://OrderSystem.gd"
-CustomerSystem="*res://CustomerSystem.gd"
+ReceiptFactory="*res://components/receipt/ReceiptFactory.gd"
 
 [display]
 
