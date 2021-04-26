@@ -88,7 +88,7 @@ func makeOrder():
 	var order: Dtos.Order = OrderSystem.generateOrder(1)
 	order.customerScene = self
 	OrderSystem.addOrder(order)
-	var timer: SceneTreeTimer = get_tree().create_timer(1.0)
+	var timer: SceneTreeTimer = get_tree().create_timer(3)
 	timer.connect("timeout", self, "invisibleHelper")
 	
 func invisibleHelper():

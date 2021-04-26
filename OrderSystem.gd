@@ -2,6 +2,8 @@ extends Node
 
 var recipe_holder # reference is set from the RecipHolder itself
 var emote
+var customerSpawn
+
 var pendingOrders = []
 var waiting: bool = false
 
@@ -9,7 +11,7 @@ signal orderFulfilled
 
 func _ready():
 	connect("orderFulfilled", self, "on_orderFulfilled")
-	createNextCustomer()
+	call_deferred("createNextCustomer")
 	
 func waitForNextCustomer():
 	print("Push next customer")
@@ -20,7 +22,7 @@ func waitForNextCustomer():
 
 func createNextCustomer():
 	print("next customer")
-	CustomerSystem.nextCustomer();
+	customerSpawn.nextCustomer();
 	if pendingOrders.size() < 2:
 		waitForNextCustomer()
 	else:
@@ -51,7 +53,11 @@ func generateOrder(length:int, specialRef=null, specialDegress=0)-> Dtos.Order :
 
 func addOrder(order: Dtos.Order):
 	if recipe_holder == null: return
-	var scene = recipe_holder.place_receipt(order)
+	var scene = ReceiptFactory.construct_receipt(order)
+	scene.visible = false
+	get_node("/root/Main").add_child(scene)
+	get_node("/root/Main/SpeechBubble").showReciept(scene)
+	#recipe_holder.place_receipt(order)
 	order.receiptScene = scene
 	pendingOrders.append(order)
 

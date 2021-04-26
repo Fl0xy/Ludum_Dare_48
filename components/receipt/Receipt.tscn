@@ -29,20 +29,21 @@ amount_6 = 9
 frydegree_6 = 4
 
 [node name="OrderPaper1" parent="." instance=ExtResource( 2 )]
+visible = false
 amount = 10
-fryable = 2
+fryable = 3
 fry_degree = 5
 
 [node name="CollisionShape1" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 23 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="OrderPaper2" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 0, 45 )
-amount = 5
-fryable = 3
-fry_degree = 3
+amount = 10
+fry_degree = 5
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 68 )
@@ -52,9 +53,9 @@ disabled = true
 [node name="OrderPaper3" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 0, 90 )
-amount = 3
-fryable = 2
-fry_degree = 1
+amount = 10
+fryable = 1
+fry_degree = 5
 
 [node name="CollisionShape3" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 113 )
@@ -62,16 +63,13 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="OrderPaper4" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 0, 135 )
-amount = 4
-fryable = 3
-fry_degree = 1
+amount = 10
+fry_degree = 5
 
 [node name="CollisionShape4" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 158 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="OrderPaper5" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -95,3 +93,5 @@ fryable = 2
 position = Vector2( 0, 248 )
 shape = SubResource( 1 )
 disabled = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_Recipe_tree_exiting"]
