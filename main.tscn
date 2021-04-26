@@ -85,7 +85,7 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 1, 1, 1, 0.411765 )
 frames = SubResource( 1 )
-frame = 3
+frame = 1
 playing = true
 centered = false
 
@@ -99,13 +99,14 @@ __meta__ = {
 
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 frames = SubResource( 1 )
+frame = 2
 playing = true
 centered = false
 
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]

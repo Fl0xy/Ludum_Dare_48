@@ -94,5 +94,9 @@ func makeOrder():
 func invisibleHelper():
 	visible = false
 	
-func getHeadScene():
+func getHead():
 	return head
+func getFrontHair():
+	return front_hair
+func getBackHair():
+	return back_hair

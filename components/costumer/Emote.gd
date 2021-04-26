@@ -22,12 +22,27 @@ func playEmote(order: Dtos.Order):
 func _physics_process(delta):
 	if playerQueue.size() > 0 and !$AnimationPlayer.is_playing():
 		var order: Dtos.Order = playerQueue.pop_front()
-		var customerScene = order.customerScene
-		var head: Node2D = customerScene.getHeadScene()
+		var customerScene = order.customerScene	
+		
+		var frontHair: Node2D = customerScene.getFrontHair()
+		var head: Node2D = customerScene.getHead()
+		var backHair: Node2D = customerScene.getBackHair()
+		
 		head.get_parent().remove_child(head)
+		backHair.get_parent().remove_child(backHair)
+		frontHair.get_parent().remove_child(frontHair)
+		
+		
+		$HeadContainer.add_child(backHair)
 		$HeadContainer.add_child(head)
+		$HeadContainer.add_child(frontHair)
+		backHair.position = head.get_node("Hair").position
+		backHair.visible = true
 		head.position = Vector2.ZERO
 		head.visible = true
+		frontHair.position = head.get_node("Hair").position
+		frontHair.visible = true
+		
 		
 		if order.score > 0:
 			$Happy.visible = true
@@ -45,5 +60,6 @@ func on_animation_finished(name):
 	$Angry.visible = false
 	$Happy.visible = false
 	$Money.visible = false
-	$HeadContainer.get_child(0).queue_free()
+	for child in $HeadContainer.get_children():
+		child.queue_free()
 	playing.customerScene.queue_free()
