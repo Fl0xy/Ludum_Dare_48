@@ -143,7 +143,6 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 centered = false
 
@@ -158,6 +157,7 @@ __meta__ = {
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -268,13 +268,13 @@ stream = ExtResource( 2 )
 autoplay = true
 
 [node name="DeepFryer1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 101, 390 )
+position = Vector2( 101, 367 )
 
 [node name="DeepFryer2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 298, 390 )
+position = Vector2( 298, 367 )
 
 [node name="DeepFryer3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 495, 390 )
+position = Vector2( 495, 367 )
 
 [node name="RecipeHolder" parent="." instance=ExtResource( 20 )]
 
