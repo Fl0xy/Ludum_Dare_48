@@ -5,6 +5,9 @@
 
 [node name="Head" instance=ExtResource( 2 )]
 
+[node name="Hair" parent="." index="0"]
+position = Vector2( 0, -66 )
+
 [node name="Sprite" type="Sprite" parent="." index="1"]
 position = Vector2( 0, -35 )
 texture = ExtResource( 1 )

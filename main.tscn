@@ -82,7 +82,15 @@ position = Vector2( 405.5, 226.5 )
 scale = Vector2( 13.9219, 8.57812 )
 texture = ExtResource( 12 )
 
+[node name="pedestrians" type="AnimatedSprite" parent="Background"]
+modulate = Color( 1, 1, 1, 0.411765 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+centered = false
+
 [node name="windows" type="Sprite" parent="Background"]
+modulate = Color( 0.505882, 0.505882, 0.505882, 1 )
 texture = ExtResource( 9 )
 centered = false
 __meta__ = {

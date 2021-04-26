@@ -50,6 +50,7 @@ func generateOrder(length:int, specialRef=null, specialDegress=0)-> Dtos.Order :
 	return order
 
 func addOrder(order: Dtos.Order):
+	if recipe_holder == null: return
 	var scene = recipe_holder.place_receipt(order)
 	order.receiptScene = scene
 	pendingOrders.append(order)
