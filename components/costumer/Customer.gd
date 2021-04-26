@@ -13,16 +13,39 @@ var front_hair = null
 var back_hair = null
 
 var bodys = [
-	preload("res://components/costumer/bodys/Body_1.tscn")
+	preload("res://components/costumer/bodys/Body_1.tscn"),
+	preload("res://components/costumer/bodys/Body_2.tscn"),
+	preload("res://components/costumer/bodys/Body_3.tscn"),
+	preload("res://components/costumer/bodys/Body_4.tscn"),
+	preload("res://components/costumer/bodys/Body_5.tscn"),
+	preload("res://components/costumer/bodys/Body_6.tscn"),
 ]
 var heads = [
-	preload("res://components/costumer/heads/Head_1.tscn")
+	preload("res://components/costumer/heads/Head_1.tscn"),
+	preload("res://components/costumer/heads/Head_2.tscn"),
+	preload("res://components/costumer/heads/Head_3.tscn"),
+	preload("res://components/costumer/heads/Head_4.tscn"),
+	preload("res://components/costumer/heads/Head_5.tscn"),
+	preload("res://components/costumer/heads/Head_6.tscn"),
+	preload("res://components/costumer/heads/Head_7.tscn"),
+	preload("res://components/costumer/heads/Head_8.tscn"),
+	preload("res://components/costumer/heads/Head_9.tscn"),
 ]
 var front_hairs = [
-	preload("res://components/costumer/back_hairs/Back_Hair.tscn")
+	preload("res://components/costumer/front_hairs/Front_Hair.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_1.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_2.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_3.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_4.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_5.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_6.tscn"),
+	preload("res://components/costumer/front_hairs/Front_Hair_7.tscn"),
 ]
 var back_hairs = [
-	preload("res://components/costumer/front_hairs/Front_Hair.tscn")
+	preload("res://components/costumer/back_hairs/Back_Hair.tscn"),
+	preload("res://components/costumer/back_hairs/Back_Hair_1.tscn"),
+	preload("res://components/costumer/back_hairs/Back_Hair_2.tscn"),
+	preload("res://components/costumer/back_hairs/Back_Hair_3.tscn"),
 ]
 
 func _ready():
@@ -47,14 +70,16 @@ func _ready():
 	else:
 		back_hair = back_hair_scene.instance()
 	
-	add_child(body)
+	
 	add_child(back_hair)
+	add_child(body)
 	add_child(head)
 	add_child(front_hair)
 	
 	head.position = body.get_node("Head").position
 	back_hair.position = head.position + head.get_node("Hair").position
 	front_hair.position = back_hair.position
+	
 	if !Engine.is_editor_hint():
 		var timer: SceneTreeTimer = get_tree().create_timer(1.0)
 		timer.connect("timeout", self, "makeOrder")
