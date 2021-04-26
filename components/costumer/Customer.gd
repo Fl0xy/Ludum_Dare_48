@@ -87,7 +87,7 @@ func _ready():
 		timer.connect("timeout", self, "makeOrder")
 	
 func makeOrder():
-	var order: Dtos.Order = OrderSystem.generateOrder(1)
+	var order: Dtos.Order = OrderSystem.generateOrder()
 	order.customerScene = self
 	OrderSystem.addOrder(order)
 	var timer: SceneTreeTimer = get_tree().create_timer(5)

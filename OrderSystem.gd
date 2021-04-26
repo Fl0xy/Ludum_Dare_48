@@ -6,6 +6,7 @@ var customerSpawn
 
 var pendingOrders = []
 var waiting: bool = false
+var sucessfullOrders: int = 0
 
 signal orderFulfilled
 
@@ -34,20 +35,46 @@ func on_orderFulfilled():
 		print("order removed ", pendingOrders.size())
 		waitForNextCustomer()
 
-func generateOrder(length:int, specialRef=null, specialDegress=0)-> Dtos.Order : 
+func generateOrder(specialRef=null, specialDegress=0)-> Dtos.Order : 
 	var order = Dtos.Order.new()
-	for i in range(length):
-		var orderPoint = Dtos.OrderPoint.new() 
-		orderPoint.fryable = randi() % (Dtos.EFryables.size()-1)
-		orderPoint.degree = 1 + randi() % 3
-		orderPoint.amount = 1 + randi() % 5
-		order.order_points.append(orderPoint)
-		
+	
+	var orderCount = 1
+	if sucessfullOrders > 10:
+		orderCount += 1
+	if sucessfullOrders > 20:
+		orderCount += 1
+	if sucessfullOrders > 30:
+		orderCount += 1
+	if sucessfullOrders > 40:
+		orderCount += 1
+	
+	var maxAmout = 1
+	if sucessfullOrders > 1:
+		maxAmout += 2
+	if sucessfullOrders > 5:
+		maxAmout += 2
+	if sucessfullOrders > 20:
+		maxAmout += 2
+	if sucessfullOrders > 40:
+		maxAmout += 2
+	if sucessfullOrders > 60:
+		maxAmout += 1
+	
 	if specialRef != null:
 		var specialOrder = Dtos.SpecialOrderPoint.new()
 		specialOrder.special_ref = specialRef
 		specialOrder.degree = specialDegress
 		order.special = specialOrder
+		orderCount -= 1
+	
+	for i in range(orderCount):
+		var orderPoint = Dtos.OrderPoint.new() 
+		orderPoint.fryable = randi() % (Dtos.EFryables.size()-1)
+		orderPoint.degree = 1 + randi() % 3
+		orderPoint.amount = 1 + randi() % maxAmout
+		order.order_points.append(orderPoint)
+		
+	
 	
 	return order
 
@@ -74,7 +101,8 @@ func fulfillOrder(recipeScene, fryablesArray):
 				score -= 1
 	
 	order.score = score
-	print(score)
+	if score > 0:
+		sucessfullOrders += 1
 	
 	for fryable in fryablesArray:
 		fryable.queue_free()
