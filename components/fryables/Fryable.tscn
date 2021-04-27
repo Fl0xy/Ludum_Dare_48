@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://components/fryables/Fryable.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_stop_working_sound.wav" type="AudioStream" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_start_working_sound.wav" type="AudioStream" id=4]
 [ext_resource path="res://components/fryables/FryableAudio.gd" type="Script" id=5]
 [ext_resource path="res://assets/sounds/deep_fryer/deep_fryer_destory_sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/deep_fryer/sizzle.wav" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -77,3 +78,7 @@ stream = ExtResource( 2 )
 
 [node name="Destory" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 6 )
+
+[node name="Sizzle" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource( 7 )
+volume_db = 3.0

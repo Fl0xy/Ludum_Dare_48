@@ -13,6 +13,8 @@ var agent47Scene = preload("res://components/costumer/agent47.tscn")
 var agent47Done: bool = false
 var gangsterScene = preload("res://components/costumer/gangster.tscn")
 var gangsterDone: bool = false
+var daruScene = preload("res://components/costumer/daru.tscn")
+var daruDone: bool = false
 
 signal orderFulfilled
 
@@ -39,6 +41,10 @@ func createNextCustomer():
 	elif (sucessfullOrders > 20 && !agent47Done):
 		customerSpawn.nextCustomer(agent47Scene.instance())
 		agent47Done = true
+	#daru
+	elif (sucessfullOrders > 30 && !daruDone):
+		customerSpawn.nextCustomer(daruScene.instance())
+		daruDone = true
 	else:
 		customerSpawn.nextCustomerRandom()
 		

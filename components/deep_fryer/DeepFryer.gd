@@ -1,5 +1,7 @@
 extends Node2D
 
+export(int, "up, down") var startPos = 1
+
 var power: bool = true
 var randomPowerFlicker: float
 
@@ -11,6 +13,11 @@ func _ready():
 	randomPowerFlicker = float(20 + (randi() % 60))
 	heaterPowered = true
 	randomHeaterFlicker = float(60 + (randi() % 10))
+	
+	if startPos == 0:
+		$GitterDing.state = $GitterDing.TOP
+		$GitterDing.position = Vector2($GitterDing.position.x, $GitterDing.Y_TOP)
+		$GitterDing.origin = $GitterDing.position
 	
 func _physics_process(delta):
 	randomPowerFlicker -= delta
