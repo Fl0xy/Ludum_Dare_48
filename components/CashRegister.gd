@@ -28,6 +28,9 @@ func oneHigher(group):
 	elif group.get_node("number_5").visible:
 		group.get_node("number_5").visible = false
 		group.get_node("number_6").visible = true
+	elif group.get_node("number_6").visible:
+		group.get_node("number_6").visible = false
+		group.get_node("number_7").visible = true
 	elif group.get_node("number_7").visible:
 		group.get_node("number_7").visible = false
 		group.get_node("number_8").visible = true

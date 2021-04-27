@@ -12,6 +12,7 @@ signal finished
 func _ready():
 	get_parent().connect("oil_entered", self, "on_oil_entered")
 	get_parent().connect("oil_exited", self, "on_oil_exited")
+	get_parent().connect("degreeChanged", self, "play_sizzle")
 	
 	$Start.connect("finished", self, "on_Start_Finished")
 	$Destory.connect("finished", self, "on_Destory_Finished")
@@ -50,3 +51,6 @@ func on_Start_Finished():
 
 func on_Destory_Finished():
 	emit_signal("finished")
+
+func play_sizzle():
+	$Sizzle.play()

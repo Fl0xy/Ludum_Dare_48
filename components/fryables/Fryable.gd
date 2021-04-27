@@ -26,6 +26,7 @@ const areaModeMask = pow(2,9)
 
 signal oil_entered
 signal oil_exited
+signal degreeChanged
 
 func _ready():
 	$s0.texture = s0Texture
@@ -55,16 +56,19 @@ func _physics_process(delta):
 					$s1.visible = true
 					degree = S1
 					remainingTime = s1Time
+					emit_signal("degreeChanged")
 				S1:
 					$s1.visible = false
 					$s2.visible = true
 					degree = S2
 					remainingTime = s2Time
+					emit_signal("degreeChanged")
 				S2:
 					$s2.visible = false
 					$s3.visible = true
 					degree = S3
 					remainingTime = s3Time
+					emit_signal("degreeChanged")
 				S3:
 					$s3.visible = false
 					degree = S4
