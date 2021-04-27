@@ -29,6 +29,7 @@ config/icon="res://icon.png"
 Dtos="*res://dtos.gd"
 OrderSystem="*res://OrderSystem.gd"
 ReceiptFactory="*res://components/receipt/ReceiptFactory.gd"
+SoundDesync="*res://SoundDesync.gd"
 
 [display]
 

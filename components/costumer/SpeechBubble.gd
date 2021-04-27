@@ -17,9 +17,7 @@ func showReciept(reciept: Recipe):
 func _on_AnimatedDeploy_animation_finished():
 	currentReciept.global_position = $RecieptPos.global_position
 	currentReciept.visible = true
-	var pitch = 1 - ((randf() - 0.5)  / 2)
-	print(pitch)
-	$AudioStreamPlayer2D.pitch_scale = pitch
+	$AudioStreamPlayer2D.pitch_scale = 1 - ((randf() - 0.5)  / 2)
 	$AudioStreamPlayer2D.play()
 	stopAudio = false
 	var timer: SceneTreeTimer = get_tree().create_timer(2)

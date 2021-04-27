@@ -49,6 +49,7 @@ __meta__ = {
 }
 
 [node name="LightRed" type="Light2D" parent="Fryer"]
+visible = false
 position = Vector2( -53, -68 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 6 )
@@ -90,7 +91,6 @@ collision_layer = 524288
 collision_mask = 524288
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GitterDing/Area2D"]
-visible = false
 position = Vector2( 0, 97 )
 polygon = PoolVector2Array( 55, -120, 54, -108, 60, -108, 69, -115, 88, -129, 95, -131, 81, -143, 62, -131 )
 
@@ -108,7 +108,7 @@ scale = Vector2( 1.00649, 1 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true

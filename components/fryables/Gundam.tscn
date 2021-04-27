@@ -1,31 +1,49 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/fryables/gundam/gundam_s0.png" type="Texture" id=4]
-[ext_resource path="res://components/fryables/Fryable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fryables/og_gundam/og_gundam_1.png" type="Texture" id=1]
+[ext_resource path="res://components/fryables/Fryable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fryables/og_gundam/og_gundam_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/fryables/og_gundam/og_gundam_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/fryables/og_gundam/og_gundam_3.png" type="Texture" id=5]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 30.0
-
-[node name="Gundam" instance=ExtResource( 5 )]
-input_pickable = true
-s0Texture = ExtResource( 4 )
-s0Time = 5
-s1Time = 5
-s2Time = 5
-s3Time = 5
+[node name="Gundam" instance=ExtResource( 2 )]
+s0Texture = ExtResource( 3 )
+s0Time = 40
+s1Texture = ExtResource( 1 )
+s1Time = 40
+s2Texture = ExtResource( 4 )
+s2Time = 40
+s3Texture = ExtResource( 5 )
+s3Time = 40
 
 [node name="s0" parent="." index="0"]
+position = Vector2( 0, -56 )
+texture = ExtResource( 3 )
+
+[node name="s1" parent="." index="1"]
+position = Vector2( 0, -56 )
+texture = ExtResource( 1 )
+
+[node name="s2" parent="." index="2"]
+position = Vector2( 0, -56 )
 texture = ExtResource( 4 )
 
+[node name="s3" parent="." index="3"]
+position = Vector2( 0, -56 )
+texture = ExtResource( 5 )
+
 [node name="FryerIdentifier" parent="." index="4"]
-position = Vector2( 11, 0 )
+position = Vector2( 0, -56 )
 
 [node name="TabletIdentifier" parent="." index="5"]
-position = Vector2( 11, 0 )
+position = Vector2( 0, -56 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
-position = Vector2( 11, 0 )
-shape = SubResource( 1 )
+[node name="Audio" parent="." index="6"]
+position = Vector2( 0, -56 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+position = Vector2( 0, -56 )
+polygon = PoolVector2Array( -26, 60, -19, 12, -33, -2, -27, -45, -12, -46, -12, -61, 10, -61, 9, -45, 28, -44, 33, -1, 15, 13, 25, 62 )
 __meta__ = {
 "_edit_lock_": true
 }

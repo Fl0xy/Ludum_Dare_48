@@ -158,7 +158,6 @@ __meta__ = {
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -274,6 +273,7 @@ position = Vector2( 101, 367 )
 
 [node name="DeepFryer2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 298, 367 )
+startPos = 0
 
 [node name="DeepFryer3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 495, 367 )

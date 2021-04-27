@@ -18,7 +18,10 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			mouseClickedPos = event.position
-			state = HELDTHRESHOLD
+			if state == FALLING:
+				state = HELD
+			else:
+				state = HELDTHRESHOLD
 	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
@@ -52,7 +55,7 @@ func _physics_process(delta):
 			
 		if abs(offset.y) > THRESHOLD:
 			state = HELD
-			if tmpPos.y < -35:
+			if tmpPos.y < Y_TOP + 20:
 				$AudioUnclick.play()
 			
 		position = tmpPos
