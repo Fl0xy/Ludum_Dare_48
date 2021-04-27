@@ -50,7 +50,7 @@ extents = Vector2( 50, 400 )
 extents = Vector2( 500, 50 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 349, 50 )
+extents = Vector2( 361, 50 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 50, 400 )
@@ -147,7 +147,7 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 centered = false
 
@@ -162,7 +162,7 @@ __meta__ = {
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -192,7 +192,7 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="Bottom" type="StaticBody2D" parent="Borders"]
-position = Vector2( 402, 501 )
+position = Vector2( 417, 501 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -301,7 +301,7 @@ position = Vector2( 735, 508 )
 script = ExtResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destoryer"]
-position = Vector2( -7, -7 )
+position = Vector2( 21, -7 )
 shape = SubResource( 13 )
 
 [connection signal="animation_finished" from="CustomerSpawn/AnimationPlayer" to="CustomerSpawn" method="_on_AnimationPlayer_animation_finished"]
