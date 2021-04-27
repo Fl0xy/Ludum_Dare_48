@@ -27,7 +27,7 @@ func _physics_process(delta):
 		var head: Node2D = customerScene.getHead()
 		head.get_parent().remove_child(head)
 		$HeadContainer.add_child(head)
-		head.z_index = 1
+		head.z_index = 2
 		head.position = Vector2.ZERO
 		head.visible = true
 		
@@ -36,7 +36,7 @@ func _physics_process(delta):
 			frontHair.get_parent().remove_child(frontHair)
 			$HeadContainer.add_child(frontHair)
 			frontHair.position = head.get_node("Hair").position
-			frontHair.z_index = 2
+			frontHair.z_index = 3
 			frontHair.visible = true
 
 		var backHair: Node2D = customerScene.getBackHair()
@@ -44,7 +44,7 @@ func _physics_process(delta):
 			backHair.get_parent().remove_child(backHair)
 			$HeadContainer.add_child(backHair)
 			backHair.position = head.get_node("Hair").position
-			backHair.z_index = 0
+			backHair.z_index = 01
 			backHair.visible = true
 		
 		if order.score > 0:
