@@ -25,7 +25,7 @@ func _ready():
 func waitForNextCustomer():
 	print("Push next customer")
 	waiting = true
-	var timer: SceneTreeTimer = get_tree().create_timer(10.0 + randi() % 20)
+	var timer: SceneTreeTimer = get_tree().create_timer(15.0 + randi() % 20)
 	timer.connect("timeout", self, "createNextCustomer")
 	
 
@@ -34,15 +34,15 @@ func createNextCustomer():
 	
 	#VIPs
 	#gangster
-	if (sucessfullOrders > 10 && !gangsterDone):
+	if (sucessfullOrders > 5 && !gangsterDone):
 		customerSpawn.nextCustomer(gangsterScene.instance())
 		gangsterDone = true
 	#agent47
-	elif (sucessfullOrders > 20 && !agent47Done):
+	elif (sucessfullOrders > 10 && !agent47Done):
 		customerSpawn.nextCustomer(agent47Scene.instance())
 		agent47Done = true
 	#daru
-	elif (sucessfullOrders > 30 && !daruDone):
+	elif (sucessfullOrders > 15 && !daruDone):
 		customerSpawn.nextCustomer(daruScene.instance())
 		daruDone = true
 	else:
@@ -65,13 +65,13 @@ func addOrder(costumer, specialRef=null, specialDegress=0):
 	order.customerScene = costumer
 	
 	var orderCount = 1
+	if sucessfullOrders > 5:
+		orderCount += 1
 	if sucessfullOrders > 10:
 		orderCount += 1
 	if sucessfullOrders > 20:
 		orderCount += 1
 	if sucessfullOrders > 30:
-		orderCount += 1
-	if sucessfullOrders > 40:
 		orderCount += 1
 	
 	var maxAmout = 1
@@ -79,9 +79,9 @@ func addOrder(costumer, specialRef=null, specialDegress=0):
 		maxAmout += 2
 	if sucessfullOrders > 5:
 		maxAmout += 2
-	if sucessfullOrders > 20:
+	if sucessfullOrders > 10:
 		maxAmout += 2
-	if sucessfullOrders > 40:
+	if sucessfullOrders > 25:
 		maxAmout += 2
 	if sucessfullOrders > 60:
 		maxAmout += 1
