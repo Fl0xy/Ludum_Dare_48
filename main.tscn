@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://components/FryableSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/AMBIENCE Cafe, 8 People, Calm, Winter, Machine Buzz, Toronto, Canada, LOOP.LRLsRs.ogg" type="AudioStream" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/ventilator/ventilator_f4.png" type="Texture" id=14]
 [ext_resource path="res://assets/ventilator/ventilator_f3.png" type="Texture" id=15]
 [ext_resource path="res://assets/ventilator/ventilator_f1.png" type="Texture" id=16]
+[ext_resource path="res://Destoryer.gd" type="Script" id=17]
 [ext_resource path="res://CustomerSpawn.gd" type="Script" id=18]
 [ext_resource path="res://components/Tablet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://components/receipt/ReceiptHolder.tscn" type="PackedScene" id=20]
@@ -49,7 +50,7 @@ extents = Vector2( 50, 400 )
 extents = Vector2( 500, 50 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 500, 50 )
+extents = Vector2( 349, 50 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 50, 400 )
@@ -122,6 +123,9 @@ extents = Vector2( 49.0001, 33 )
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 42.0001, 33 )
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 130, 50 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
 __meta__ = {
@@ -143,7 +147,7 @@ texture = ExtResource( 12 )
 [node name="pedestrians" type="AnimatedSprite" parent="Background"]
 modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
 centered = false
 
@@ -158,6 +162,7 @@ __meta__ = {
 [node name="ventilator" type="AnimatedSprite" parent="Background"]
 position = Vector2( 715, 56 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="Borders" type="Node2D" parent="."]
@@ -194,6 +199,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
+position = Vector2( -153, 0 )
 shape = SubResource( 5 )
 
 [node name="Right" type="StaticBody2D" parent="Borders"]
@@ -289,4 +295,14 @@ position = Vector2( 587, 128 )
 [node name="SpecialSpawner" type="Position2D" parent="."]
 position = Vector2( 518, 279 )
 
+[node name="Destoryer" type="Area2D" parent="."]
+modulate = Color( 0.858824, 0.054902, 0.054902, 1 )
+position = Vector2( 735, 508 )
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destoryer"]
+position = Vector2( -7, -7 )
+shape = SubResource( 13 )
+
 [connection signal="animation_finished" from="CustomerSpawn/AnimationPlayer" to="CustomerSpawn" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Destoryer" to="Destoryer" method="_on_Destoryer_body_entered"]
